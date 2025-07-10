@@ -1,6 +1,5 @@
 # ManyWeapons
-ManyWeapons is a CoD4 weapon editor 
-
+ManyWeapons is a CoD4 weapon editor made by: [elfenliedtopfan5](https://github.com/elfenliedtopfan5)
 #
 
 <img width="128" height="128" alt="ManyWeapons_Logo_128" src="https://github.com/user-attachments/assets/fdb3f25d-2c48-4f41-adda-17b7200e39d4" /> 
