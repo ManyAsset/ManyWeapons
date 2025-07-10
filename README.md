@@ -1,7 +1,7 @@
 [![ManyAsset](https://img.shields.io/discord/585171589750849538?color=%23FF8711&label=ManyAsset&logo=discord&logoColor=%23FFFFFF)](https://discord.gg/v2TWkeR)
 
 
-# ManyPacker
+# ManyWeapons
 <img width="5504" height="1024" alt="ManyWeapons_main_Logo" src="https://github.com/user-attachments/assets/754da1ae-49eb-47dd-8f25-fccd355a461e" />
 
 
