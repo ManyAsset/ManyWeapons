@@ -1,0 +1,2 @@
+H:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\bin\Release\net8.0-windows\win-x64\publish\ManyWeapons.pdb
+H:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\bin\Release\net8.0-windows\win-x64\publish\ManyWeapons.exe

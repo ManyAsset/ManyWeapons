@@ -1,0 +1,1210 @@
+﻿<UserControl x:Class="ManyWeapons.View.StatsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch">
+
+    <UserControl.Resources>
+        <!-- Dark theme base colors -->
+        <Color x:Key="DarkBackground">#1e1e1e</Color>
+        <Color x:Key="DarkPanel">#2d2d30</Color>
+        <Color x:Key="AccentOrange">#FF9800</Color>
+        <Color x:Key="TextColor">White</Color>
+
+        <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{StaticResource DarkBackground}"/>
+        <SolidColorBrush x:Key="DarkPanelBrush" Color="{StaticResource DarkPanel}"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentOrange}"/>
+        <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+
+
+        <Style x:Key="DarkTabItemContent" TargetType="TabItem">
+            <Setter Property="Background" Value="{StaticResource DarkPanelBrush}" />
+        </Style>
+
+        <Style x:Key="FieldLabelStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <!-- Add this -->
+            <Setter Property="Margin" Value="0,0,5,5" />
+        </Style>
+
+        <Style x:Key="FieldCheckStyle" TargetType="CheckBox">
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,0,5,5" />
+        </Style>
+
+        <!-- Sidebar button style -->
+        <Style x:Key="SidebarButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
+            <Setter Property="ToolTipService.InitialShowDelay" Value="100"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- TabControl dark theme style -->
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="{StaticResource DarkPanelBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="ContentTemplate" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <!-- Tab headers -->
+                            <TabPanel 
+                Grid.Row="0"
+                IsItemsHost="True"
+                Background="{StaticResource DarkPanelBrush}"
+                Margin="0"
+                KeyboardNavigation.TabIndex="1" />
+
+                            <!-- Selected tab content (intentionally blank) -->
+                            <ContentPresenter 
+                Grid.Row="1"
+                ContentSource="SelectedContent"
+                Margin="0"
+                KeyboardNavigation.TabNavigation="Local" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!-- TabItem style -->
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Padding" Value="10,2" />
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+                    <Setter Property="Foreground" Value="{StaticResource DarkBackgroundBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ThemedSubTabControl" TargetType="TabControl">
+            <Setter Property="Background" Value="{StaticResource DarkPanelBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabControl">
+                        <TabPanel Background="{StaticResource DarkBackgroundBrush}"
+                  IsItemsHost="True"
+                  Margin="0"
+                  KeyboardNavigation.TabIndex="1"
+                  Panel.ZIndex="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style x:Key="ThemedSubTabItem" TargetType="TabItem">
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="10,2"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border x:Name="Border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="2">
+                            <ContentPresenter ContentSource="Header"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Margin="10,2"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Selected tab -->
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource AccentBrush}"/>
+                                <Setter Property="Foreground" Value="{StaticResource DarkBackgroundBrush}"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                            </Trigger>
+
+                            <!-- Hover (not selected) -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#444444"/>
+                                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <!-- GroupBox style -->
+        <Style TargetType="GroupBox">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+        </Style>
+
+        <!-- ComboBoxToggleButton (arrow part) -->
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="ToggleButton">
+            <Border Background="{TemplateBinding Background}" 
+        BorderBrush="{TemplateBinding BorderBrush}" 
+        BorderThickness="{TemplateBinding BorderThickness}">
+                <Grid>
+                    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <Path HorizontalAlignment="Right" VerticalAlignment="Center" 
+              Margin="0,0,4,0" 
+              Data="M 0 0 L 4 4 L 8 0 Z" 
+              Fill="{StaticResource AccentBrush}" />
+                    <!--"{TemplateBinding Foreground}"-->
+                </Grid>
+            </Border>
+        </ControlTemplate>
+
+        <!-- ComboBox style -->
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="HorizontalContentAlignment"
+Value="{Binding Path=HorizontalContentAlignment, 
+        RelativeSource={RelativeSource AncestorType=ItemsControl, AncestorLevel=1}, 
+        FallbackValue=Left}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Name="ToggleButton"
+                              Template="{StaticResource ComboBoxToggleButton}"
+                              Grid.Column="2"
+                              Focusable="false"
+                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                              ClickMode="Press"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}">
+                                <TextBlock Text="{TemplateBinding SelectionBoxItem}"
+   Foreground="{StaticResource TextBrush}"
+   Margin="4"
+   VerticalAlignment="Center"
+   HorizontalAlignment="Left"/>
+                            </ToggleButton>
+                            <Popup Name="Popup"
+                       Placement="Bottom"
+                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                       AllowsTransparency="True"
+                       Focusable="False"
+                       PopupAnimation="Slide">
+                                <Border Background="{StaticResource DarkPanelBrush}"
+                            BorderBrush="{StaticResource AccentBrush}"
+                            BorderThickness="1"
+                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}">
+                                    <ScrollViewer Margin="0" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True"
+                                        KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                                <Setter Property="Background" Value="#333333"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ComboBoxItem style -->
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="4,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource AccentBrush}"/>
+                                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <!-- TextBox style -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="4"/>
+        </Style>
+
+        <!-- CheckBox style -->
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="4,2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="18" Height="18"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+                                <Path x:Name="CheckMark"
+                  Width="12"
+                  Height="12"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center"
+                  Visibility="Collapsed"
+                  Stroke="{StaticResource AccentBrush}"
+                  StrokeThickness="2"
+                  Data="M2,6 L5,9 L10,3"/>
+                            </Border>
+                            <ContentPresenter Margin="5,0,0,0"
+                          VerticalAlignment="Center"
+                          RecognizesAccessKey="True"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Brushes -->
+        <!-- Brushes updated to match orange/black theme -->
+        <SolidColorBrush x:Key="arrowButtonForeground" Color="#FF9800"/>
+        <!-- Orange -->
+        <SolidColorBrush x:Key="StandardBorderBrush" Color="#FF9800"/>
+        <SolidColorBrush x:Key="StandardBackgroundBrush" Color="#1e1e1e"/>
+        <SolidColorBrush x:Key="HoverBorderBrush" Color="#FFB84D"/>
+        <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#2d2d30"/>
+        <SolidColorBrush x:Key="SelectedForegroundBrush" Color="#FF9800"/>
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#555"/>
+        <SolidColorBrush x:Key="NormalBrush" Color="#FF9800"/>
+        <SolidColorBrush x:Key="NormalBorderBrush" Color="#FF9800"/>
+        <SolidColorBrush x:Key="HorizontalNormalBrush" Color="#FF9800"/>
+        <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="#FF9800"/>
+        <SolidColorBrush x:Key="GlyphBrush" Color="White"/>
+        <LinearGradientBrush x:Key="PressedBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFB84D" Offset="0.0"/>
+            <GradientStop Color="#FF9800" Offset="0.5"/>
+            <GradientStop Color="#FF6F00" Offset="1.0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="ListBoxBackgroundBrush" StartPoint="0,0" EndPoint="1,0.001">
+            <GradientStop Color="#2d2d30" Offset="0.0"/>
+            <GradientStop Color="#2d2d30" Offset="0.6"/>
+            <GradientStop Color="#1e1e1e" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <!-- ScrollBar Repeat Buttons (at each end) -->
+        <Style x:Key="ScrollBarLineButton" TargetType="RepeatButton">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border
+       Name="Border"
+       Margin="1"
+       CornerRadius="2"
+       Background="Transparent"
+       BorderBrush="{StaticResource NormalBorderBrush}"
+       BorderThickness="0">
+                            <Path
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Fill="White"
+               Data="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Background"
+               Value="{StaticResource PressedBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground"
+               Value="{StaticResource DisabledForegroundBrush}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ScrollBar Repeat Buttons (middle area) -->
+        <Style x:Key="ScrollBarPageButton" TargetType="RepeatButton">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RepeatButton">
+                        <Border Background="Transparent" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ScrollBar Thumb -->
+        <Style x:Key="ScrollBarThumb" TargetType="Thumb">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="IsTabStop" Value="false"/>
+            <Setter Property="Focusable" Value="false"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Border
+       CornerRadius="2"
+       Background="{TemplateBinding Background}"
+       BorderBrush="{TemplateBinding BorderBrush}"
+       BorderThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Vertical ScrollBar Template -->
+        <ControlTemplate x:Key="VerticalScrollBar" TargetType="ScrollBar">
+            <Grid Width="12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="18"/>
+                </Grid.RowDefinitions>
+                <Border Grid.RowSpan="3" CornerRadius="2" Background="Transparent" />
+                <RepeatButton Grid.Row="0" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
+                <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource ScrollBarPageButton}" Command="ScrollBar.PageUpCommand" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="1,0,1,0" Background="{StaticResource HorizontalNormalBrush}" BorderBrush="{StaticResource HorizontalNormalBorderBrush}" />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource ScrollBarPageButton}" Command="ScrollBar.PageDownCommand" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton Grid.Row="2" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineDownCommand" Content="M 0 0 L 4 4 L 8 0 Z"/>
+            </Grid>
+        </ControlTemplate>
+
+        <!-- Horizontal ScrollBar Template -->
+        <ControlTemplate x:Key="HorizontalScrollBar" TargetType="ScrollBar">
+            <Grid Height="12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="18"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="18"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.ColumnSpan="3" CornerRadius="2" Background="Transparent" />
+                <RepeatButton Grid.Column="0" Style="{StaticResource ScrollBarLineButton}" Width="18" Command="ScrollBar.LineLeftCommand" Content="M 4 0 L 4 8 L 0 4 Z" />
+                <Track Name="PART_Track" Grid.Column="1" IsDirectionReversed="False">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource ScrollBarPageButton}" Command="ScrollBar.PageLeftCommand" />
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="0,1,0,1" Background="{StaticResource NormalBrush}" BorderBrush="{StaticResource NormalBorderBrush}" />
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Style="{StaticResource ScrollBarPageButton}" Command="ScrollBar.PageRightCommand" />
+                    </Track.IncreaseRepeatButton>
+                </Track>
+                <RepeatButton Grid.Column="2" Style="{StaticResource ScrollBarLineButton}" Width="18" Command="ScrollBar.LineRightCommand" Content="M 0 0 L 4 4 L 0 8 Z"/>
+            </Grid>
+        </ControlTemplate>
+
+        <!-- Corner Template -->
+        <ControlTemplate x:Key="ScrollViewerCorner" TargetType="Control">
+            <Border Background="Transparent" />
+        </ControlTemplate>
+
+        <!-- Style for overall ScrollBar -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Style.Triggers>
+                <Trigger Property="Orientation" Value="Horizontal">
+                    <Setter Property="Width" Value="Auto"/>
+                    <Setter Property="Height" Value="12"/>
+                    <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}"/>
+                </Trigger>
+                <Trigger Property="Orientation" Value="Vertical">
+                    <Setter Property="Width" Value="12"/>
+                    <Setter Property="Height" Value="Auto"/>
+                    <Setter Property="Template" Value="{StaticResource VerticalScrollBar}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style for overall ScrollViewer -->
+        <Style x:Key="FavsScrollViewer" TargetType="ScrollViewer">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <ScrollContentPresenter Grid.Column="0" Grid.Row="0"/>
+                            <ScrollBar Name="PART_VerticalScrollBar"
+           Grid.Column="1" Grid.Row="0"
+           Value="{TemplateBinding VerticalOffset}"
+           Maximum="{TemplateBinding ScrollableHeight}"
+           ViewportSize="{TemplateBinding ViewportHeight}"
+           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"/>
+                            <ScrollBar Name="PART_HorizontalScrollBar"
+           Orientation="Horizontal"
+           Grid.Column="0" Grid.Row="1"
+           Value="{TemplateBinding HorizontalOffset}"
+           Maximum="{TemplateBinding ScrollableWidth}"
+           ViewportSize="{TemplateBinding ViewportWidth}"
+           Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"/>
+                            <Control Template="{StaticResource ScrollViewerCorner}" Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+
+    <TabControl Margin="5" Background="{StaticResource DarkPanelBrush}" Foreground="{StaticResource TextBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        <TabItem Header="Damage">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="15">
+
+                    <!-- General Damage Fields -->
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="damage" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [damage], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Text="meleeDamage" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [meleeDamage], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+
+                        <TextBlock Text="maxDamageRange" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [maxDamageRange], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+                        <TextBlock Text="playerDamage" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [playerDamage], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                        <TextBlock Text="minDamage" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [minDamage], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                        <TextBlock Text="minDamageRange" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [minDamageRange], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+                    </Grid>
+
+                    <!-- Location Damage Group -->
+                    <GroupBox Header="Location Damage" HorizontalAlignment="Stretch">
+                        <Grid Margin="5" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <!-- 10 rows total -->
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Same field layout as before -->
+                            <TextBlock Text="None" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locNone], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="Helmet" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locHelmet], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                            <TextBlock Text="Head" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locHead], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="Neck" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locNeck], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                            <TextBlock Text="Upper Torso" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locTorsoUpper], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                            <TextBlock Text="Lower Torso" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locTorsoLower], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                            <TextBlock Text="Upper Right Arm" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locRightArmUpper], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                            <TextBlock Text="Lower Right Arm" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locRightArmLower], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                            <TextBlock Text="Right Hand" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locRightHand], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+
+                            <!-- Right Column -->
+                            <TextBlock Text="Left Arm" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locLeftArmUpper], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+
+                            <TextBlock Text="Lower Left Arm" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locLeftArmLower], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                            <TextBlock Text="Upper Right Leg" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locRightLegUpper], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                            <TextBlock Text="Lower Right Leg" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locRightLegLower], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
+
+                            <TextBlock Text="Right Foot" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locRightFoot], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
+
+                            <TextBlock Text="Upper Left Leg" Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locLeftLegUpper], Mode=TwoWay}" Grid.Row="5" Grid.Column="3"/>
+
+                            <TextBlock Text="Lower Left Leg" Grid.Row="6" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locLeftLegLower], Mode=TwoWay}" Grid.Row="6" Grid.Column="3"/>
+
+                            <TextBlock Text="Left Foot" Grid.Row="7" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locLeftFoot], Mode=TwoWay}" Grid.Row="7" Grid.Column="3"/>
+
+                            <TextBlock Text="Gun" Grid.Row="8" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox Text="{Binding [locGun], Mode=TwoWay}" Grid.Row="8" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+        <!-- Other tabs can be added here -->
+        <TabItem Header="Ammo/Clip">
+            <GroupBox Header="Ammo / Clip Settings" Margin="10" HorizontalAlignment="Stretch">
+                <Grid Margin="10" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <!-- Label column -->
+                        <ColumnDefinition Width="3*"/>
+                        <!-- TextBox column -->
+                        <ColumnDefinition Width="1*"/>
+                        <!-- Spacer -->
+                        <ColumnDefinition Width="4*"/>
+                        <!-- CheckBoxes column -->
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Left Column: Labels and TextBoxes -->
+                    <TextBlock Text="ammoName" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [ammoName], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                    <TextBlock Text="clipName" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [clipName], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                    <TextBlock Text="maxAmmo" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [maxAmmo], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                    <TextBlock Text="startAmmo" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [startAmmo], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                    <TextBlock Text="clipSize" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [clipSize], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                    <TextBlock Text="shotCount" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [shotCount], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                    <TextBlock Text="dropAmmoMax" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [dropAmmoMax], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                    <TextBlock Text="dropAmmoMin" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [dropAmmoMin], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                    <TextBlock Text="reloadStartAdd" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [reloadStartAdd], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+
+                    <TextBlock Text="reloadAmmoAdd" Grid.Row="9" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [reloadAmmoAdd], Mode=TwoWay}" Grid.Row="9" Grid.Column="1"/>
+
+                    <TextBlock Text="lowAmmoWarningThreshold" Grid.Row="10" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                    <TextBox Text="{Binding [lowAmmoWarningThreshold], Mode=TwoWay}" Grid.Row="10" Grid.Column="1"/>
+
+                    <!-- Right Column: CheckBoxes -->
+                    <CheckBox Content="cancelAutoHolsterWhenEmpty" 
+                      IsChecked="{Binding [cancelAutoHolsterWhenEmpty], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" 
+                      Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+
+                    <CheckBox Content="suppressAmmoReserveDisplay" 
+                      IsChecked="{Binding [suppressAmmoReserveDisplay], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" 
+                      Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+                </Grid>
+            </GroupBox>
+        </TabItem>
+        <TabItem Header="Movement">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+
+                    <!-- ADS Settings -->
+                    <GroupBox Header="ADS Settings" Margin="0,0,0,10">
+                        <UniformGrid Columns="6" Margin="5">
+                            <TextBlock Text="Trans In" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsTransInTime], Mode=TwoWay}" />
+                            <TextBlock Text="Trans Out" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsTransOutTime], Mode=TwoWay}" />
+                            <TextBlock Text="Trans Blend" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsTransBlendTime], Mode=TwoWay}" />
+
+                            <TextBlock Text="Reload Trans" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsReloadTransTime], Mode=TwoWay}" />
+                            <TextBlock Text="Zoom FOV" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsZoomFov], Mode=TwoWay}" />
+                            <TextBlock Text="Zoom In" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsZoomInFrac], Mode=TwoWay}" />
+
+                            <TextBlock Text="Zoom Out" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsZoomOutFrac], Mode=TwoWay}" />
+                            <TextBlock Text="Aim Pitch" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsAimPitch], Mode=TwoWay}" />
+                            <TextBlock Text="Crosshair In Frac" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsCrosshairInFrac], Mode=TwoWay}" />
+
+                            <TextBlock Text="Crosshair Out Frac" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsCrosshairOutFrac], Mode=TwoWay}" />
+                            <TextBlock Text="Bob Factor" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsBobFactor], Mode=TwoWay}" />
+                            <TextBlock Text="View Bob Multiplier" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsViewBobMult], Mode=TwoWay}" />
+
+                            <TextBlock Text="Min View Error" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsViewErrorMin], Mode=TwoWay}" />
+                            <TextBlock Text="Max View Error" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsViewErrorMax], Mode=TwoWay}" />
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <!-- Stand Settings -->
+                    <GroupBox Header="Stand Settings" Margin="0,0,0,10">
+                        <UniformGrid Columns="6" Margin="5">
+                            <TextBlock Text="Move X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standMoveF], Mode=TwoWay}" />
+                            <TextBlock Text="Move Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standMoveR], Mode=TwoWay}" />
+                            <TextBlock Text="Move Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standMoveU], Mode=TwoWay}" />
+
+                            <TextBlock Text="Rotate X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standRotP], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standRotY], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standRotR], Mode=TwoWay}" />
+
+                            <TextBlock Text="Move Rate" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [posMoveRate], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Rate" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [posRotRate], Mode=TwoWay}" />
+
+                            <TextBlock Text="Min Speed" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [standMoveMinSpeed], Mode=TwoWay}" />
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <!-- Prone Settings -->
+                    <GroupBox Header="Prone Settings" Margin="0,0,0,10">
+                        <UniformGrid Columns="6" Margin="5">
+                            <TextBlock Text="Move X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneMoveF], Mode=TwoWay}" />
+                            <TextBlock Text="Move Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneMoveR], Mode=TwoWay}" />
+                            <TextBlock Text="Move Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneMoveU], Mode=TwoWay}" />
+
+                            <TextBlock Text="Rotate X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneRotP], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneRotY], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneRotR], Mode=TwoWay}" />
+
+                            <TextBlock Text="Offset X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneOfsF], Mode=TwoWay}" />
+                            <TextBlock Text="Offset Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneOfsR], Mode=TwoWay}" />
+                            <TextBlock Text="Offset Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneOfsU], Mode=TwoWay}" />
+
+                            <TextBlock Text="Move Rate" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [posProneMoveRate], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Rate" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [posProneRotRate], Mode=TwoWay}" />
+
+                            <TextBlock Text="Min Speed" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [proneRotMinSpeed], Mode=TwoWay}" />
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <!-- Crouch Settings -->
+                    <GroupBox Header="Crouch Settings" Margin="0,0,0,10">
+                        <UniformGrid Columns="6" Margin="5">
+                            <TextBlock Text="Move X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedMoveF], Mode=TwoWay}" />
+                            <TextBlock Text="Move Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedMoveR], Mode=TwoWay}" />
+                            <TextBlock Text="Move Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedMoveU], Mode=TwoWay}" />
+
+                            <TextBlock Text="Rotate X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedRotP], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedRotY], Mode=TwoWay}" />
+                            <TextBlock Text="Rotate Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedRotR], Mode=TwoWay}" />
+
+                            <TextBlock Text="Offset X" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedOfsF], Mode=TwoWay}" />
+                            <TextBlock Text="Offset Y" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedOfsR], Mode=TwoWay}" />
+                            <TextBlock Text="Offset Z" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedOfsU], Mode=TwoWay}" />
+
+                            <TextBlock Text="Move Min Speed" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedMoveMinSpeed], Mode=TwoWay}" />
+
+                            <TextBlock Text=" Rotate Min Speed" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [duckedRotMinSpeed], Mode=TwoWay}" />
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <!-- Idle Settings -->
+                    <GroupBox Header="Idle Settings" Margin="0,0,0,10">
+                        <UniformGrid Columns="4" Margin="5">
+                            <TextBlock Text="Hip" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [hipIdleAmount], Mode=TwoWay}" />
+                            <TextBlock Text="Speed" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [hipIdleSpeed], Mode=TwoWay}" />
+
+                            <TextBlock Text="ADS" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsIdleAmount], Mode=TwoWay}" />
+                            <TextBlock Text="Speed" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsIdleSpeed], Mode=TwoWay}" />
+
+
+
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <!-- Misc Movement -->
+                    <GroupBox Header="Additional Movement Settings" Margin="0,0,0,10">
+                        <UniformGrid Columns="4" Margin="5">
+                            <TextBlock Text="Crouch Factor" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [idleCrouchFactor], Mode=TwoWay}" />
+                            <TextBlock Text="Prone Factor" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [idleProneFactor], Mode=TwoWay}" />
+
+                            <TextBlock Text="Move Speed Scale" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [moveSpeedScale], Mode=TwoWay}" />
+                            <TextBlock Text="ADS Move Speed Scale" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [adsMoveSpeedScale], Mode=TwoWay}" />
+                            <TextBlock Text="Sprint Duration Scale" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [sprintDurationScale], Mode=TwoWay}" />
+                        </UniformGrid>
+                    </GroupBox>
+
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+        <TabItem Header="Spread">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="15">
+                    <GroupBox Header="Spread Settings" Margin="10">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="250"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Column 1 -->
+                            <TextBlock Text="adsSpread" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSpread], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadStandMin" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadStandMin], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadDuckedMin" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDuckedMin], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadProneMin" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadProneMin], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadFireAdd" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadFireAdd], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadDecayRate" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDecayRate], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                            <TextBlock Text="autoAimRange" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [autoAimRange], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                            <TextBlock Text="aimAssistRange" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [aimAssistRange], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                            <TextBlock Text="aimAssistRangeAds" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [aimAssistRangeAds], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+
+                            <!-- Column 2 -->
+                            <TextBlock Text="hipSpreadStandMax" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadMax], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadDuckedMax" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDuckedMax], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadProneMax" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadProneMax], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadTurnAdd" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadTurnAdd], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadDuckedDecay" Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDuckedDecay], Mode=TwoWay}" Grid.Row="5" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadMoveAdd" Grid.Row="6" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadMoveAdd], Mode=TwoWay}" Grid.Row="6" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadProneDecay" Grid.Row="7" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadProneDecay], Mode=TwoWay}" Grid.Row="7" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Spread">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="15">
+                    <GroupBox Header="Spread Settings" Margin="10" HorizontalAlignment="Stretch">
+                        <Grid Margin="10" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <!-- Label 1 -->
+                                <ColumnDefinition Width="3*"/>
+                                <!-- Input 1 -->
+                                <ColumnDefinition Width="2*"/>
+                                <!-- Label 2 -->
+                                <ColumnDefinition Width="3*"/>
+                                <!-- Input 2 -->
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Column 1 -->
+                            <TextBlock Text="adsSpread" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSpread], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadStandMin" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadStandMin], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadDuckedMin" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDuckedMin], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadProneMin" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadProneMin], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadFireAdd" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadFireAdd], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                            <TextBlock Text="hipSpreadDecayRate" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDecayRate], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                            <TextBlock Text="autoAimRange" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [autoAimRange], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                            <TextBlock Text="aimAssistRange" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [aimAssistRange], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                            <TextBlock Text="aimAssistRangeAds" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [aimAssistRangeAds], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+
+                            <!-- Column 2 -->
+                            <TextBlock Text="hipSpreadStandMax" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadMax], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadDuckedMax" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDuckedMax], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadProneMax" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadProneMax], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadTurnAdd" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadTurnAdd], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadDuckedDecay" Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadDuckedDecay], Mode=TwoWay}" Grid.Row="5" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadMoveAdd" Grid.Row="6" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadMoveAdd], Mode=TwoWay}" Grid.Row="6" Grid.Column="3"/>
+
+                            <TextBlock Text="hipSpreadProneDecay" Grid.Row="7" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipSpreadProneDecay], Mode=TwoWay}" Grid.Row="7" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+
+        <TabItem Header="Kick">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="15">
+
+                    <!-- Gun Kick Settings -->
+                    <GroupBox Header="Gun Kick Settings" Margin="10" HorizontalAlignment="Stretch">
+                        <Grid Margin="10" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Rows -->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Left Column -->
+                            <TextBlock Text="hipGunKickReducedKickBullets" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickReducedKickBullets], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="hipGunKickReducedKickPercent" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickReducedKickPercent], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                            <TextBlock Text="hipGunKickAccel" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickAccel], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="hipGunKickSpeedMax" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickSpeedMax], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickReducedKickBullets" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickReducedKickBullets], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickReducedKickPercent" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickReducedKickPercent], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                            <!-- Right Column -->
+                            <TextBlock Text="hipGunKickYawMin" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickYawMin], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+
+                            <TextBlock Text="hipGunKickYawMax" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickYawMax], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                            <TextBlock Text="hipGunKickStaticDecay" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickStaticDecay], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                            <TextBlock Text="hipGunKickSpeedDecay" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickSpeedDecay], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
+
+                            <TextBlock Text="hipGunKickPitchMin" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickPitchMin], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
+
+                            <TextBlock Text="hipGunKickPitchMax" Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipGunKickPitchMax], Mode=TwoWay}" Grid.Row="5" Grid.Column="3"/>
+
+                            <TextBlock Text="gunMaxPitch" Grid.Row="6" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [gunMaxPitch], Mode=TwoWay}" Grid.Row="6" Grid.Column="3"/>
+
+                            <TextBlock Text="gunMaxYaw" Grid.Row="7" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [gunMaxYaw], Mode=TwoWay}" Grid.Row="7" Grid.Column="3"/>
+
+                            <TextBlock Text="adsGunKickAccel" Grid.Row="8" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickAccel], Mode=TwoWay}" Grid.Row="8" Grid.Column="3"/>
+
+                            <TextBlock Text="adsGunKickSpeedMax" Grid.Row="9" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickSpeedMax], Mode=TwoWay}" Grid.Row="9" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- View Kick Settings -->
+                    <GroupBox Header="View Kick Settings" Margin="10" HorizontalAlignment="Stretch">
+                        <Grid Margin="10" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Left Column -->
+                            <TextBlock Text="hipViewKickPitchMin" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipViewKickPitchMin], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="hipViewKickPitchMax" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipViewKickPitchMax], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                            <TextBlock Text="hipViewKickYawMin" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipViewKickYawMin], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="hipViewKickYawMax" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipViewKickYawMax], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                            <TextBlock Text="hipViewKickCenterSpeed" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [hipViewKickCenterSpeed], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                            <!-- Right Column -->
+                            <TextBlock Text="adsViewKickPitchMin" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsViewKickPitchMin], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+
+                            <TextBlock Text="adsViewKickPitchMax" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsViewKickPitchMax], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                            <TextBlock Text="adsViewKickYawMin" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsViewKickYawMin], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                            <TextBlock Text="adsViewKickYawMax" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsViewKickYawMax], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
+
+                            <TextBlock Text="adsViewKickCenterSpeed" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsViewKickCenterSpeed], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+
+    </TabControl>
+</UserControl>
