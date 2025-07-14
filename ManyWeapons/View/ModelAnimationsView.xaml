@@ -760,9 +760,7 @@ Value="{Binding Path=HorizontalContentAlignment,
             <TabItem Header="Anims" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel Margin="5">
-
-                        <!-- GroupBox 1: Standard Animations -->
-                        <GroupBox Header="Standard Animations">
+                        <GroupBox Header="All Animations">
                             <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="200"/>
@@ -770,6 +768,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
+                                    <!-- 29 rows total -->
                                     <RowDefinition Height="Auto"/>
                                     <!-- adsUpAnim -->
                                     <RowDefinition Height="Auto"/>
@@ -780,6 +779,8 @@ Value="{Binding Path=HorizontalContentAlignment,
                                     <!-- adsLastShotAnim -->
                                     <RowDefinition Height="Auto"/>
                                     <!-- adsRechamberAnim -->
+                                    <RowDefinition Height="Auto"/>
+                                    <!-- RechamberAnim -->
                                     <RowDefinition Height="Auto"/>
                                     <!-- idleAnim -->
                                     <RowDefinition Height="Auto"/>
@@ -814,86 +815,6 @@ Value="{Binding Path=HorizontalContentAlignment,
                                     <!-- sprintLoopAnim -->
                                     <RowDefinition Height="Auto"/>
                                     <!-- sprintOutAnim -->
-                                </Grid.RowDefinitions>
-
-                                <!-- Bindings -->
-                                <TextBlock Text="adsUpAnim" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [adsUpAnim], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
-
-                                <TextBlock Text="adsDownAnim" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [adsDownAnim], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
-
-                                <TextBlock Text="adsFireAnim" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [adsFireAnim], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
-
-                                <TextBlock Text="adsLastShotAnim" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [adsLastShotAnim], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
-
-                                <TextBlock Text="adsRechamberAnim" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [adsRechamberAnim], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
-
-                                <TextBlock Text="idleAnim" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [idleAnim], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
-
-                                <TextBlock Text="fireAnim" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [fireAnim], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
-
-                                <TextBlock Text="lastShotAnim" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [lastShotAnim], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
-
-                                <TextBlock Text="reloadAnim" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [reloadAnim], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
-
-                                <TextBlock Text="reloadEmptyAnim" Grid.Row="9" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [reloadEmptyAnim], Mode=TwoWay}" Grid.Row="9" Grid.Column="1"/>
-
-                                <TextBlock Text="reloadStartAnim" Grid.Row="10" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [reloadStartAnim], Mode=TwoWay}" Grid.Row="10" Grid.Column="1"/>
-
-                                <TextBlock Text="reloadEndAnim" Grid.Row="11" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [reloadEndAnim], Mode=TwoWay}" Grid.Row="11" Grid.Column="1"/>
-
-                                <TextBlock Text="meleeAnim" Grid.Row="12" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [meleeAnim], Mode=TwoWay}" Grid.Row="12" Grid.Column="1"/>
-
-                                <TextBlock Text="meleeChargeAnim" Grid.Row="13" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [meleeChargeAnim], Mode=TwoWay}" Grid.Row="13" Grid.Column="1"/>
-
-                                <TextBlock Text="raiseAnim" Grid.Row="14" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [raiseAnim], Mode=TwoWay}" Grid.Row="14" Grid.Column="1"/>
-
-                                <TextBlock Text="quickRaiseAnim" Grid.Row="15" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [quickRaiseAnim], Mode=TwoWay}" Grid.Row="15" Grid.Column="1"/>
-
-                                <TextBlock Text="dropAnim" Grid.Row="16" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [dropAnim], Mode=TwoWay}" Grid.Row="16" Grid.Column="1"/>
-
-                                <TextBlock Text="quickDropAnim" Grid.Row="17" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [quickDropAnim], Mode=TwoWay}" Grid.Row="17" Grid.Column="1"/>
-
-                                <TextBlock Text="firstRaiseAnim" Grid.Row="18" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [firstRaiseAnim], Mode=TwoWay}" Grid.Row="18" Grid.Column="1"/>
-
-                                <TextBlock Text="sprintInAnim" Grid.Row="19" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [sprintInAnim], Mode=TwoWay}" Grid.Row="19" Grid.Column="1"/>
-
-                                <TextBlock Text="sprintLoopAnim" Grid.Row="20" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [sprintLoopAnim], Mode=TwoWay}" Grid.Row="20" Grid.Column="1"/>
-
-                                <TextBlock Text="sprintOutAnim" Grid.Row="21" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [sprintOutAnim], Mode=TwoWay}" Grid.Row="21" Grid.Column="1"/>
-                            </Grid>
-                        </GroupBox>
-
-                        <!-- GroupBox 2: Other Animations -->
-                        <GroupBox Header="Other Animations">
-                            <Grid Margin="5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <!-- altDropAnim -->
                                     <RowDefinition Height="Auto"/>
@@ -908,22 +829,93 @@ Value="{Binding Path=HorizontalContentAlignment,
                                     <!-- emptyRaiseAnim -->
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="altDropAnim" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [altDropAnim], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+                                <!-- Fields -->
+                                <TextBlock Text="adsUpAnim" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [adsUpAnim], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
 
-                                <TextBlock Text="altRaiseAnim" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [altRaiseAnim], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+                                <TextBlock Text="adsDownAnim" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [adsDownAnim], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
 
-                              
+                                <TextBlock Text="adsFireAnim" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [adsFireAnim], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
 
-                                <TextBlock Text="emptyDropAnim" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [emptyDropAnim], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+                                <TextBlock Text="adsLastShotAnim" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [adsLastShotAnim], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
 
-                                <TextBlock Text="emptyIdleAnim" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [emptyIdleAnim], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+                                <TextBlock Text="RechamberAnim" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [rechamberAnim], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
 
-                                <TextBlock Text="emptyRaiseAnim" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [emptyRaiseAnim], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+                                <TextBlock Text="adsRechamberAnim" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [adsRechamberAnim], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                                <TextBlock Text="idleAnim" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [idleAnim], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                                <TextBlock Text="fireAnim" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [fireAnim], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                                <TextBlock Text="lastShotAnim" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [lastShotAnim], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+
+                                <TextBlock Text="reloadAnim" Grid.Row="9" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [reloadAnim], Mode=TwoWay}" Grid.Row="9" Grid.Column="1"/>
+
+                                <TextBlock Text="reloadEmptyAnim" Grid.Row="10" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [reloadEmptyAnim], Mode=TwoWay}" Grid.Row="10" Grid.Column="1"/>
+
+                                <TextBlock Text="reloadStartAnim" Grid.Row="11" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [reloadStartAnim], Mode=TwoWay}" Grid.Row="11" Grid.Column="1"/>
+
+                                <TextBlock Text="reloadEndAnim" Grid.Row="12" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [reloadEndAnim], Mode=TwoWay}" Grid.Row="12" Grid.Column="1"/>
+
+                                <TextBlock Text="meleeAnim" Grid.Row="13" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [meleeAnim], Mode=TwoWay}" Grid.Row="13" Grid.Column="1"/>
+
+                                <TextBlock Text="meleeChargeAnim" Grid.Row="14" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [meleeChargeAnim], Mode=TwoWay}" Grid.Row="14" Grid.Column="1"/>
+
+                                <TextBlock Text="raiseAnim" Grid.Row="15" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [raiseAnim], Mode=TwoWay}" Grid.Row="15" Grid.Column="1"/>
+
+                                <TextBlock Text="quickRaiseAnim" Grid.Row="16" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [quickRaiseAnim], Mode=TwoWay}" Grid.Row="16" Grid.Column="1"/>
+
+                                <TextBlock Text="dropAnim" Grid.Row="17" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [dropAnim], Mode=TwoWay}" Grid.Row="17" Grid.Column="1"/>
+
+                                <TextBlock Text="quickDropAnim" Grid.Row="18" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [quickDropAnim], Mode=TwoWay}" Grid.Row="18" Grid.Column="1"/>
+
+                                <TextBlock Text="firstRaiseAnim" Grid.Row="19" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [firstRaiseAnim], Mode=TwoWay}" Grid.Row="19" Grid.Column="1"/>
+
+                                <TextBlock Text="sprintInAnim" Grid.Row="20" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [sprintInAnim], Mode=TwoWay}" Grid.Row="20" Grid.Column="1"/>
+
+                                <TextBlock Text="sprintLoopAnim" Grid.Row="21" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [sprintLoopAnim], Mode=TwoWay}" Grid.Row="21" Grid.Column="1"/>
+
+                                <TextBlock Text="sprintOutAnim" Grid.Row="22" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [sprintOutAnim], Mode=TwoWay}" Grid.Row="22" Grid.Column="1"/>
+
+                                <TextBlock Text="altDropAnim" Grid.Row="23" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [altDropAnim], Mode=TwoWay}" Grid.Row="23" Grid.Column="1"/>
+
+                                <TextBlock Text="altRaiseAnim" Grid.Row="24" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [altRaiseAnim], Mode=TwoWay}" Grid.Row="24" Grid.Column="1"/>
+
+                                <TextBlock Text="deployAnim" Grid.Row="25" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [deployAnim], Mode=TwoWay}" Grid.Row="25" Grid.Column="1"/>
+
+                                <TextBlock Text="emptyDropAnim" Grid.Row="26" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [emptyDropAnim], Mode=TwoWay}" Grid.Row="26" Grid.Column="1"/>
+
+                                <TextBlock Text="emptyIdleAnim" Grid.Row="27" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [emptyIdleAnim], Mode=TwoWay}" Grid.Row="27" Grid.Column="1"/>
+
+                                <TextBlock Text="emptyRaiseAnim" Grid.Row="28" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [emptyRaiseAnim], Mode=TwoWay}" Grid.Row="28" Grid.Column="1"/>
                             </Grid>
                         </GroupBox>
                     </StackPanel>
@@ -932,12 +924,13 @@ Value="{Binding Path=HorizontalContentAlignment,
 
 
 
+
             <TabItem Header="State Timers" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel Margin="5" Orientation="Vertical">
 
                         <!-- Group 1: Fire & Melee Timers -->
-                        <GroupBox Header="Firing / Melee Timers">
+                        <GroupBox Header="Fire">
                             <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="200"/>
@@ -958,19 +951,30 @@ Value="{Binding Path=HorizontalContentAlignment,
                                 <TextBlock Text="fireDelay" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                                 <TextBox Text="{Binding [fireDelay], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
 
-                                <TextBlock Text="meleeTime" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [meleeTime], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
-
-                                <TextBlock Text="meleeDelay" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [meleeDelay], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
-
-                                <TextBlock Text="meleeChargeTime" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [meleeChargeTime], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
-
-                                <TextBlock Text="meleeChargeDelay" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [meleeChargeDelay], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
                             </Grid>
                         </GroupBox>
+
+
+                        <!-- Group: Rechamber Timers -->
+                        <GroupBox Header="Rechamber Timers">
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="rechamberTime" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [rechamberTime], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                                <TextBlock Text="rechamberBoltTime" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [rechamberBoltTime], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+
 
                         <!-- Group 2: Reload Timers -->
                         <GroupBox Header="Reload Timers">
@@ -980,6 +984,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
@@ -1008,11 +1013,12 @@ Value="{Binding Path=HorizontalContentAlignment,
 
                                 <TextBlock Text="reloadEndTime" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                                 <TextBox Text="{Binding [reloadEndTime], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
                             </Grid>
                         </GroupBox>
 
                         <!-- Group 4: Sprint & ADS Timers -->
-                        <GroupBox Header="Sprint / ADS Timers">
+                        <GroupBox Header="Sprints">
                             <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="200"/>
@@ -1026,8 +1032,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="emptyRaiseTime" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [emptyRaiseTime], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+                             
 
                                 <TextBlock Text="sprintInTime" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                                 <TextBox Text="{Binding [sprintInTime], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
@@ -1038,8 +1043,34 @@ Value="{Binding Path=HorizontalContentAlignment,
                                 <TextBlock Text="sprintOutTime" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                                 <TextBox Text="{Binding [sprintOutTime], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
 
-                                <TextBlock Text="rechamberTime" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [rechamberTime], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+                               
+                            </Grid>
+                        </GroupBox>
+
+                        <!-- Group: Melee Timers -->
+                        <GroupBox Header="Melee Timers">
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="meleeTime" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [meleeTime], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                                <TextBlock Text="meleeDelay" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [meleeDelay], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                                <TextBlock Text="meleeChargeTime" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [meleeChargeTime], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+                                <TextBlock Text="meleeChargeDelay" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [meleeChargeDelay], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
                             </Grid>
                         </GroupBox>
 
@@ -1051,6 +1082,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
@@ -1082,8 +1114,11 @@ Value="{Binding Path=HorizontalContentAlignment,
                                 <TextBlock Text="firstRaiseTime" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                                 <TextBox Text="{Binding [firstRaiseTime], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
 
-                                <TextBlock Text="emptyDropTime" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                                <TextBox Text="{Binding [emptyDropTime], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+                                <TextBlock Text="emptyRaiseTime" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [emptyRaiseTime], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                                <TextBlock Text="emptyDropTime" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                                <TextBox Text="{Binding [emptyDropTime], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
                             </Grid>
                         </GroupBox>
 

@@ -51,7 +51,7 @@ namespace ManyWeapons.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ManyWeapons;V1.0.1.0;component/view/confirmdialog.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ManyWeapons;V1.0.2.0;component/view/confirmdialog.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\View\ConfirmDialog.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

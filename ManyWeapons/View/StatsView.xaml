@@ -545,36 +545,57 @@ Value="{Binding Path=HorizontalContentAlignment,
                 <StackPanel Margin="15">
 
                     <!-- General Damage Fields -->
-                    <Grid Margin="0,0,0,10">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="200"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="200"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                    <GroupBox Header="General Damage" Margin="0,0,0,10">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="damage" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                        <TextBox Text="{Binding [damage], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
-                        <TextBlock Text="meleeDamage" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
-                        <TextBox Text="{Binding [meleeDamage], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Text="maxDamageRange" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                        <TextBox Text="{Binding [maxDamageRange], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
-                        <TextBlock Text="playerDamage" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
-                        <TextBox Text="{Binding [playerDamage], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+                            <TextBlock Text="damage" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [damage], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
 
-                        <TextBlock Text="minDamage" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                        <TextBox Text="{Binding [minDamage], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+                            <TextBlock Text="minDamage" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [minDamage], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
 
-                        <TextBlock Text="minDamageRange" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
-                        <TextBox Text="{Binding [minDamageRange], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
-                    </Grid>
+                            <TextBlock Text="maxDamageRange" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [maxDamageRange], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="minDamageRange" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [minDamageRange], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- Group: Player & Melee Damage -->
+                    <GroupBox Header="Player / Melee Damage" Margin="0,0,0,10">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="playerDamage" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [playerDamage], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="meleeDamage" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [meleeDamage], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+
 
                     <!-- Location Damage Group -->
                     <GroupBox Header="Location Damage" HorizontalAlignment="Stretch">
@@ -663,77 +684,95 @@ Value="{Binding Path=HorizontalContentAlignment,
 
         <!-- Other tabs can be added here -->
         <TabItem Header="Ammo/Clip">
-            <GroupBox Header="Ammo / Clip Settings" Margin="10" HorizontalAlignment="Stretch">
-                <Grid Margin="10" HorizontalAlignment="Stretch">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <!-- Label column -->
-                        <ColumnDefinition Width="3*"/>
-                        <!-- TextBox column -->
-                        <ColumnDefinition Width="1*"/>
-                        <!-- Spacer -->
-                        <ColumnDefinition Width="4*"/>
-                        <!-- CheckBoxes column -->
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10" Orientation="Vertical">
 
-                    <!-- Left Column: Labels and TextBoxes -->
-                    <TextBlock Text="ammoName" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [ammoName], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+                    <!-- Group: Ammo Settings -->
+                    <GroupBox Header="Ammo Settings" Margin="0,0,0,10">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="clipName" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [clipName], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                    <TextBlock Text="maxAmmo" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [maxAmmo], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+                            <TextBlock Text="ammoName" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [ammoName], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
 
-                    <TextBlock Text="startAmmo" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [startAmmo], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+                            <TextBlock Text="clipName" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [clipName], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
 
-                    <TextBlock Text="clipSize" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [clipSize], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+                            <TextBlock Text="maxAmmo" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [maxAmmo], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
 
-                    <TextBlock Text="shotCount" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [shotCount], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+                            <TextBlock Text="startAmmo" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [startAmmo], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
 
-                    <TextBlock Text="dropAmmoMax" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [dropAmmoMax], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+                            <TextBlock Text="clipSize" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [clipSize], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
 
-                    <TextBlock Text="dropAmmoMin" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [dropAmmoMin], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+                            <TextBlock Text="shotCount" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [shotCount], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
 
-                    <TextBlock Text="reloadStartAdd" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [reloadStartAdd], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+                            <TextBlock Text="lowAmmoWarningThreshold" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [lowAmmoWarningThreshold], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
 
-                    <TextBlock Text="reloadAmmoAdd" Grid.Row="9" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [reloadAmmoAdd], Mode=TwoWay}" Grid.Row="9" Grid.Column="1"/>
+                            <TextBlock Text="reloadStartAdd" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [reloadStartAdd], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
 
-                    <TextBlock Text="lowAmmoWarningThreshold" Grid.Row="10" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                    <TextBox Text="{Binding [lowAmmoWarningThreshold], Mode=TwoWay}" Grid.Row="10" Grid.Column="1"/>
+                            <TextBlock Text="reloadAmmoAdd" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [reloadAmmoAdd], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+                        </Grid>
+                    </GroupBox>
 
-                    <!-- Right Column: CheckBoxes -->
-                    <CheckBox Content="cancelAutoHolsterWhenEmpty" 
-                      IsChecked="{Binding [cancelAutoHolsterWhenEmpty], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" 
-                      Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+                    <!-- Group: Drop Ammo Settings -->
+                    <GroupBox Header="Dropped Ammo Values" Margin="0,0,0,10">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                    <CheckBox Content="suppressAmmoReserveDisplay" 
-                      IsChecked="{Binding [suppressAmmoReserveDisplay], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" 
-                      Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
-                </Grid>
-            </GroupBox>
+                            <TextBlock Text="dropAmmoMax" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [dropAmmoMax], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="dropAmmoMin" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
+                            <TextBox Text="{Binding [dropAmmoMin], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <!-- Group: Display Options -->
+                    <GroupBox Header="Display Options">
+                        <StackPanel Margin="10">
+                            <CheckBox Content="cancelAutoHolsterWhenEmpty"
+                              IsChecked="{Binding [cancelAutoHolsterWhenEmpty], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}"
+                              />
+
+                            <CheckBox Content="suppressAmmoReserveDisplay"
+                              IsChecked="{Binding [suppressAmmoReserveDisplay], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}"
+                              />
+                        </StackPanel>
+                    </GroupBox>
+
+                </StackPanel>
+            </ScrollViewer>
         </TabItem>
+
         <TabItem Header="Movement">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="10">

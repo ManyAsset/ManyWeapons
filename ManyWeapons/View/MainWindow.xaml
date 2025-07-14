@@ -1009,7 +1009,9 @@ Value="{Binding Path=HorizontalContentAlignment,
 
 
 
-
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="S" Command="{Binding SaveCommand}" />
+    </Window.InputBindings>
 
     <Grid Name="RootGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border
