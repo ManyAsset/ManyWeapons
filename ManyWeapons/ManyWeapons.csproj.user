@@ -7,63 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="View\ChangelogWindow.xaml.cs">
+    <Compile Update="View\GeneralInfoView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ConfirmDialog.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\effectsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\GeneralSectionView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\ModelAnimationsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\SoundView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\CustomSplashScreen.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\StatsView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\typespecificView.xaml.cs">
+    <Compile Update="View\GenericSectionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\ChangelogWindow.xaml">
+    <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\ConfirmDialog.xaml">
+    <Page Update="View\GeneralInfoView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\effectsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\GeneralSectionView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\ModelAnimationsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\SoundView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\CustomSplashScreen.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\StatsView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\typespecificView.xaml">
+    <Page Update="View\GenericSectionView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

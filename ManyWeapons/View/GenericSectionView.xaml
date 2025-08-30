@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="ManyWeapons.View.GenericSectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ManyWeapons.Converters">
+
+    <UserControl.Resources>
+        <local:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+        <local:StringToBoolConverter x:Key="StringToBoolConverter"/>
+
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding DisplayGroups}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,10,0,10">
+                        <!-- Orange Group Header -->
+                        <TextBlock Text="{Binding Name}"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource AccentBrush}"
+                           Margin="0,10,0,5"/>
+
+                        <!-- Fields inside this group -->
+                        <ItemsControl ItemsSource="{Binding Entries}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel Width="360" Margin="5">
+                                        <!-- No label text here anymore -->
+
+                                        <ContentControl Content="{Binding}">
+                                            <ContentControl.Style>
+                                                <Style TargetType="ContentControl">
+                                                    <Style.Triggers>
+
+                                                        <!-- Checkbox -->
+                                                        <DataTrigger Binding="{Binding IsBoolField}" Value="True">
+                                                            <Setter Property="ContentTemplate">
+                                                                <Setter.Value>
+                                                                    <DataTemplate>
+                                                                        <CheckBox IsChecked="{Binding Value, Converter={StaticResource StringToBoolConverter}, UpdateSourceTrigger=PropertyChanged}"
+                                                                          Content="{Binding Key}"
+                                                                          Foreground="{StaticResource TextBrush}"
+                                                                          VerticalAlignment="Center"/>
+                                                                    </DataTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+
+                                                        <!-- Dropdown -->
+                                                        <DataTrigger Binding="{Binding IsEnumField}" Value="True">
+                                                            <Setter Property="ContentTemplate">
+                                                                <Setter.Value>
+                                                                    <DataTemplate>
+                                                                        <StackPanel>
+                                                                            <TextBlock Text="{Binding Key}" Foreground="Gray" Margin="0,0,0,2"/>
+                                                                            <ComboBox ItemsSource="{Binding EnumOptions}"
+                                                                              SelectedItem="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                                              Width="240"
+                                                                              HorizontalContentAlignment="Left"
+                                                                              VerticalAlignment="Center"/>
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </DataTrigger>
+
+                                                        <!-- Text -->
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding IsBoolField}" Value="False"/>
+                                                                <Condition Binding="{Binding IsEnumField}" Value="False"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter Property="ContentTemplate">
+                                                                <Setter.Value>
+                                                                    <DataTemplate>
+                                                                        <StackPanel>
+                                                                            <TextBlock Text="{Binding Key}" Foreground="Gray" Margin="0,0,0,2"/>
+                                                                            <TextBox Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"
+                                                                             Width="240"
+                                                                             VerticalAlignment="Center"/>
+                                                                        </StackPanel>
+                                                                    </DataTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                        </MultiDataTrigger>
+
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </ContentControl.Style>
+                                        </ContentControl>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+    </ScrollViewer>
+
+</UserControl>

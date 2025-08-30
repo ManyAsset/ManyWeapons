@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="ManyWeapons.View.GeneralInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:local="clr-namespace:ManyWeapons.Converters"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av"
+             av:DesignHeight="295.453">
+
+    <UserControl.Resources>
+        <local:StringToBoolConverter x:Key="StringToBoolConverter"/>
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="20">
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}" x:Key="LabelStyle">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Margin" Value="0,2,0,8"/>
+                </Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Margin" Value="0,2,0,8"/>
+                </Style>
+                <Style TargetType="{x:Type CheckBox}">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Margin" Value="0,2,0,8"/>
+                </Style>
+            </Grid.Resources>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <!-- Add more rows as needed -->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Column 1 -->
+            <TextBlock Text="Display Name:" Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+            <TextBox Text="{Binding Section.Entries[displayName].Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1"/>
+
+            <TextBlock Text="Mode Name:" Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+            <TextBox Text="{Binding Section.Entries[modeName].Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"/>
+
+            <TextBlock Text="Alt Name:" Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+            <TextBox Text="{Binding Section.Entries[altWeaponName].Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1"/>
+
+            <TextBlock Text="AI Description:" Grid.Row="3" Grid.Column="0" Style="{StaticResource LabelStyle}"/>
+            <TextBox Text="{Binding Section.Entries[AIOverlayDescription].Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1"/>
+
+            <!-- Column 2 -->
+            <TextBlock Text="Weapon Type:" Grid.Row="0" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+            <ComboBox ItemsSource="{Binding Section.Entries[weaponType].EnumOptions}" 
+                      SelectedItem="{Binding Section.Entries[weaponType].Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Grid.Row="0" Grid.Column="3"/>
+
+            <TextBlock Text="Weapon Class:" Grid.Row="1" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+            <ComboBox ItemsSource="{Binding Section.Entries[weaponClass].EnumOptions}" 
+                      SelectedItem="{Binding Section.Entries[weaponClass].Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Grid.Row="1" Grid.Column="3"/>
+
+            <TextBlock Text="Fire Type:" Grid.Row="2" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+            <ComboBox ItemsSource="{Binding Section.Entries[fireType].EnumOptions}" 
+                      SelectedItem="{Binding Section.Entries[fireType].Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Grid.Row="2" Grid.Column="3"/>
+
+            <TextBlock Text="Target Folder:" Grid.Row="3" Grid.Column="2" Style="{StaticResource LabelStyle}"/>
+            <ComboBox ItemsSource="{Binding Section.Entries[targetFolder].EnumOptions}" 
+                      SelectedItem="{Binding Section.Entries[targetFolder].Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Grid.Row="3" Grid.Column="3"/>
+
+            <!-- Boolean Flags -->
+            <CheckBox Content="isBoltAction" IsChecked="{Binding Section.Entries[isBoltAction].Value, Converter={StaticResource StringToBoolConverter}, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.Column="0"/>
+            <CheckBox Content="isSilenced" IsChecked="{Binding Section.Entries[isSilenced].Value, Converter={StaticResource StringToBoolConverter}, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.Column="1"/>
+            <CheckBox Content="hasADS" IsChecked="{Binding Section.Entries[hasADS].Value, Converter={StaticResource StringToBoolConverter}, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.Column="2"/>
+            <CheckBox Content="twoHanded" IsChecked="{Binding Section.Entries[twoHanded].Value, Converter={StaticResource StringToBoolConverter}, UpdateSourceTrigger=PropertyChanged}" Grid.Row="5" Grid.Column="3"/>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>
