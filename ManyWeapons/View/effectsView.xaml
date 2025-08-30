@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:arrow="clr-namespace:ManyWeapons.Converters"
              mc:Ignorable="d" 
+             FocusManager.IsFocusScope="True"
+             KeyboardNavigation.DirectionalNavigation="Cycle"
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
@@ -540,10 +543,10 @@ Value="{Binding Path=HorizontalContentAlignment,
     </UserControl.Resources>
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="10">
+        <StackPanel Margin="10" KeyboardNavigation.DirectionalNavigation="Cycle">
 
             <!-- GroupBox for all effects -->
-            <GroupBox Header="Weapon Effects">
+            <GroupBox Header="Weapon Effects" >
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
@@ -561,13 +564,13 @@ Value="{Binding Path=HorizontalContentAlignment,
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="viewFlashEffect" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
-                    <TextBox Text="{Binding [viewFlashEffect], Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
+                    <TextBox  Text="{Binding [viewFlashEffect], Mode=TwoWay}" Grid.Row="0" Grid.Column="1" />
 
                     <TextBlock Text="worldFlashEffect" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
-                    <TextBox Text="{Binding [worldFlashEffect], Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
+                    <TextBox  Text="{Binding [worldFlashEffect], Mode=TwoWay}" Grid.Row="1" Grid.Column="1" />
 
                     <TextBlock Text="viewShellEjectEffect" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
-                    <TextBox Text="{Binding [viewShellEjectEffect], Mode=TwoWay}" Grid.Row="2" Grid.Column="1" />
+                    <TextBox  Text="{Binding [viewShellEjectEffect], Mode=TwoWay}" Grid.Row="2" Grid.Column="1" />
 
                     <TextBlock Text="worldShellEjectEffect" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
                     <TextBox Text="{Binding [worldShellEjectEffect], Mode=TwoWay}" Grid.Row="3" Grid.Column="1" />
@@ -576,7 +579,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                     <TextBox Text="{Binding [viewLastShotEjectEffect], Mode=TwoWay}" Grid.Row="4" Grid.Column="1" />
 
                     <TextBlock Text="worldLastShotEjectEffect" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
-                    <TextBox Text="{Binding [worldLastShotEjectEffect], Mode=TwoWay}" Grid.Row="5" Grid.Column="1" />
+                    <TextBox  Text="{Binding [worldLastShotEjectEffect], Mode=TwoWay}" Grid.Row="5" Grid.Column="1" />
 
                     <TextBlock Text="worldClipDropEffect" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" />
                     <TextBox Text="{Binding [worldClipDropEffect], Mode=TwoWay}" Grid.Row="6" Grid.Column="1" />

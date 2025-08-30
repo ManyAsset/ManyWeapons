@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lxtRuwqqtpg=",
+  "dgSpecHash": "PLNk4aH/D0o=",
   "success": true,
-  "projectFilePath": "H:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\elfen\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.11\\microsoft.net.illink.tasks.8.0.11.nupkg.sha512",
-    "C:\\Users\\elfen\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.11\\microsoft.netcore.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\elfen\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.11.nupkg.sha512",
-    "C:\\Users\\elfen\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.11\\microsoft.aspnetcore.app.runtime.win-x64.8.0.11.nupkg.sha512"
-  ],
+  "projectFilePath": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

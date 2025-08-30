@@ -25,6 +25,55 @@ namespace ManyWeapons.View
         {
             InitializeComponent();
             DataContext = viewmodel;
+            this.PreviewKeyDown += HandleArrowKeyFocusNavigation;
         }
+
+        private void HandleArrowKeyFocusNavigation(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.FocusedElement is not FrameworkElement currentElement)
+                return;
+
+            FocusNavigationDirection? direction = e.Key switch
+            {
+                Key.Left => FocusNavigationDirection.Left,
+                Key.Right => FocusNavigationDirection.Right,
+                Key.Up => FocusNavigationDirection.Up,
+                Key.Down => FocusNavigationDirection.Down,
+                _ => null
+            };
+
+            if (direction is null)
+                return;
+
+            var request = new TraversalRequest(direction.Value);
+            var moved = currentElement.MoveFocus(request);
+
+            // Mark event handled if movement was successful
+            if (moved)
+                e.Handled = true;
+        }
+
+        public void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            var textBox = sender as UIElement;
+            if (textBox == null)
+                return;
+
+            switch (e.Key)
+            {
+                case Key.Right:
+                case Key.Down:
+                    textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                    e.Handled = true;
+                    break;
+
+                case Key.Left:
+                case Key.Up:
+                    textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Previous));
+                    e.Handled = true;
+                    break;
+            }
+        }
+
     }
 }

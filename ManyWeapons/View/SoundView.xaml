@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManyWeapons.View"
              mc:Ignorable="d" 
+             FocusManager.IsFocusScope="True"
+             KeyboardNavigation.DirectionalNavigation="Cycle"
              HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch">
 
@@ -540,7 +542,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="10">
+            <StackPanel Margin="10" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                 <!-- Notetracks -->
                 <GroupBox Header="Notetracks (one per line)">

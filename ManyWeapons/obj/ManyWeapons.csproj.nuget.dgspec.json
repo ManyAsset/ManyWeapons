@@ -1,25 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "H:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj": {}
+    "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj": {}
   },
   "projects": {
-    "H:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj": {
-      "version": "1.0.2",
+    "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj": {
+      "version": "1.0.3",
       "restore": {
-        "projectUniqueName": "H:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
+        "projectUniqueName": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
         "projectName": "ManyWeapons",
-        "projectPath": "H:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
+        "projectPath": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
         "packagesPath": "C:\\Users\\elfen\\.nuget\\packages\\",
-        "outputPath": "H:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\obj\\",
+        "outputPath": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\elfen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 24.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -28,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 24.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,21 +42,13 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
-          "dependencies": {
-            "Microsoft.NET.ILLink.Tasks": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.11, )",
-              "autoReferenced": true
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -71,20 +60,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.11, 8.0.11]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -93,12 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
-        }
-      },
-      "runtimes": {
-        "win-x64": {
-          "#import": []
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

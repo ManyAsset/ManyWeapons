@@ -4,6 +4,8 @@
              xmlns:av="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="clr-namespace:ManyWeapons.Converters"
              mc:Ignorable="av"
+             FocusManager.IsFocusScope="True"
+             KeyboardNavigation.DirectionalNavigation="Cycle"
              Height="auto" Width="Auto">
 
     <UserControl.Resources>
@@ -198,57 +200,67 @@
             </Border>
         </ControlTemplate>
 
-        <!-- ComboBox style -->
+        <!-- ComboBox style with keyboard focus highlight -->
         <Style TargetType="ComboBox">
+            <Setter Property="Focusable" Value="True"/>
+            <Setter Property="KeyboardNavigation.IsTabStop" Value="True"/>
             <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
             <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
             <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="4"/>
             <Setter Property="HorizontalContentAlignment"
-Value="{Binding Path=HorizontalContentAlignment, 
-        RelativeSource={RelativeSource AncestorType=ItemsControl, AncestorLevel=1}, 
-        FallbackValue=Left}"/>
+            Value="{Binding Path=HorizontalContentAlignment, 
+                            RelativeSource={RelativeSource AncestorType=ItemsControl, AncestorLevel=1}, 
+                            FallbackValue=Left}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ComboBox">
-                        <Grid>
-                            <ToggleButton Name="ToggleButton"
-                              Template="{StaticResource ComboBoxToggleButton}"
-                              Grid.Column="2"
-                              Focusable="false"
-                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                              ClickMode="Press"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}">
-                                <TextBlock Text="{TemplateBinding SelectionBoxItem}"
-   Foreground="{StaticResource TextBrush}"
-   Margin="4"
-   VerticalAlignment="Center"
-   HorizontalAlignment="Left"/>
-                            </ToggleButton>
-                            <Popup Name="Popup"
-                       Placement="Bottom"
-                       IsOpen="{TemplateBinding IsDropDownOpen}"
-                       AllowsTransparency="True"
-                       Focusable="False"
-                       PopupAnimation="Slide">
-                                <Border Background="{StaticResource DarkPanelBrush}"
-                            BorderBrush="{StaticResource AccentBrush}"
-                            BorderThickness="1"
-                            MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}">
-                                    <ScrollViewer Margin="0" SnapsToDevicePixels="True">
-                                        <StackPanel IsItemsHost="True"
-                                        KeyboardNavigation.DirectionalNavigation="Contained"/>
-                                    </ScrollViewer>
-                                </Border>
-                            </Popup>
-                        </Grid>
+                        <Border x:Name="FocusVisual"
+                        BorderThickness="1"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Background="{TemplateBinding Background}">
+                            <Grid>
+                                <ToggleButton Name="ToggleButton"
+                                      Template="{StaticResource ComboBoxToggleButton}"
+                                      Grid.Column="2"
+                                      Focusable="false"
+                                      IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                      ClickMode="Press"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}">
+                                    <TextBlock Text="{TemplateBinding SelectionBoxItem}"
+                                       Foreground="{StaticResource TextBrush}"
+                                       Margin="4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"/>
+                                </ToggleButton>
+                                <Popup Name="Popup"
+                               Placement="Bottom"
+                               IsOpen="{TemplateBinding IsDropDownOpen}"
+                               AllowsTransparency="True"
+                               Focusable="False"
+                               PopupAnimation="Slide">
+                                    <Border Background="{StaticResource DarkPanelBrush}"
+                                    BorderBrush="{StaticResource AccentBrush}"
+                                    BorderThickness="1"
+                                    MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ComboBox}}">
+                                        <ScrollViewer Margin="0" SnapsToDevicePixels="True">
+                                            <StackPanel IsItemsHost="True"
+                                                KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
-                                <Setter Property="Background" Value="#333333"/>
+                                <Setter TargetName="FocusVisual" Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
+                                <Setter TargetName="FocusVisual" Property="Background" Value="#333333"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="FocusVisual" Property="BorderBrush" Value="White"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="Foreground" Value="Gray"/>
@@ -258,7 +270,6 @@ Value="{Binding Path=HorizontalContentAlignment,
                 </Setter.Value>
             </Setter>
         </Style>
-
         <!-- ComboBoxItem style -->
         <Style TargetType="ComboBoxItem">
             <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
@@ -295,6 +306,8 @@ Value="{Binding Path=HorizontalContentAlignment,
 
         <!-- CheckBox style -->
         <Style TargetType="CheckBox">
+            <Setter Property="Focusable" Value="True"/>
+            <Setter Property="IsTabStop" Value="True"/>
             <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
             <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}"/>
             <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}"/>
@@ -305,27 +318,31 @@ Value="{Binding Path=HorizontalContentAlignment,
                 <Setter.Value>
                     <ControlTemplate TargetType="CheckBox">
                         <StackPanel Orientation="Horizontal">
-                            <Border Width="18" Height="18"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Border x:Name="Border"
+                            Width="18" Height="18"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
                                 <Path x:Name="CheckMark"
-                  Width="12"
-                  Height="12"
-                  VerticalAlignment="Center"
-                  HorizontalAlignment="Center"
-                  Visibility="Collapsed"
-                  Stroke="{StaticResource AccentBrush}"
-                  StrokeThickness="2"
-                  Data="M2,6 L5,9 L10,3"/>
+                              Width="12" Height="12"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              Visibility="Collapsed"
+                              Stroke="{StaticResource AccentBrush}"
+                              StrokeThickness="2"
+                              Data="M2,6 L5,9 L10,3"/>
                             </Border>
                             <ContentPresenter Margin="5,0,0,0"
-                          VerticalAlignment="Center"
-                          RecognizesAccessKey="True"/>
+                                      VerticalAlignment="Center"
+                                      RecognizesAccessKey="True"/>
                         </StackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -543,7 +560,7 @@ Value="{Binding Path=HorizontalContentAlignment,
         <TabControl Margin="5" Background="{StaticResource DarkPanelBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem Header="Basics" >
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="1">
+                    <StackPanel Margin="1" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                         <!-- ========== Text + Dropdowns ========== -->
                         <GroupBox Header="General Info" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -650,7 +667,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
                         <!-- ========== Checkboxes Left ========== -->
                         <GroupBox Header="Weapon Settings">
-                            <UniformGrid Columns="3" Margin="5">
+                            <UniformGrid Columns="3" Margin="5" KeyboardNavigation.DirectionalNavigation="Cycle">
                                 <CheckBox Content="rifleBullet" IsChecked="{Binding [rifleBullet], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" />
                                 <CheckBox Content="armorPiercing" IsChecked="{Binding [armorPiercing], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" />
                                 <CheckBox Content="boltAction" IsChecked="{Binding [boltAction], Mode=TwoWay, Converter={StaticResource StringToBoolConverter}}" />
@@ -682,7 +699,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                   VerticalAlignment="Stretch">
                     <Grid Margin="5"
               HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch">
+              VerticalAlignment="Stretch" KeyboardNavigation.DirectionalNavigation="Cycle">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -934,7 +951,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
             <TabItem Header="AI">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="5">
+                    <StackPanel Margin="5" KeyboardNavigation.DirectionalNavigation="Cycle">
                         <GroupBox Header="AI Settings">
                             <Grid Margin="5">
                                 <Grid.ColumnDefinitions>

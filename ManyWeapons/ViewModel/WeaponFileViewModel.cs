@@ -42,6 +42,40 @@ namespace ManyWeapons.ViewModel
             }
         }
 
+
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            var textBox = sender as UIElement;
+            if (textBox == null)
+                return;
+
+            switch (e.Key)
+            {
+                case Key.Right:
+                    textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                    e.Handled = true;
+                    break;
+
+                case Key.Left:
+                    textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Previous));
+                    e.Handled = true;
+                    break;
+
+                case Key.Down:
+                    textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Down));
+                    e.Handled = true;
+                    break;
+
+                case Key.Up:
+                    textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Up));
+                    e.Handled = true;
+                    break;
+            }
+        }
+
+
+
         private string _saveButtonText = "💾 Save";
         public string SaveButtonText
         {

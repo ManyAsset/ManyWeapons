@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManyWeapons.View"
+             FocusManager.IsFocusScope="True"
+             KeyboardNavigation.DirectionalNavigation="Cycle"
              mc:Ignorable="d"
              d:DesignWidth="800" d:DesignHeight="600">
 
@@ -542,7 +544,7 @@ Value="{Binding Path=HorizontalContentAlignment,
             <!-- Models Tab -->
             <TabItem Header="Models">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="5">
+                    <StackPanel Margin="5" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                         <!-- Main Weapon Model Fields -->
                         <GroupBox Header="Weapon Models">
@@ -593,164 +595,163 @@ Value="{Binding Path=HorizontalContentAlignment,
 
                         <GroupBox Header="Alternative Models" Margin="10">
                             <Expander Header="Show/Hide Alternative Models" IsExpanded="False" Foreground="White">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                                    <UniformGrid Columns="2" Margin="10">
-                                        <!-- gunModel2 + worldModel2 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel2" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel2], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel2" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel2], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                <Grid>
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="400">
+                                        <UniformGrid Columns="2" Margin="10 " KeyboardNavigation.DirectionalNavigation="Cycle">
+                                            <!-- gunModel2 + worldModel2 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel2" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel2], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel2" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel2], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel3 + worldModel3 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel3" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel3], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel3" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel3], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel3 + worldModel3 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel3" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel3], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel3" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel3], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel4 + worldModel4 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel4" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel4], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel4" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel4], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel4 + worldModel4 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel4" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel4], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel4" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel4], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel5 + worldModel5 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel5" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel5], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel5" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel5], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel5 + worldModel5 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel5" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel5], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel5" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel5], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel6 + worldModel6 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel6" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel6], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel6" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel6], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel6 + worldModel6 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel6" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel6], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel6" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel6], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel7 + worldModel7 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel7" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel7], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel7" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel7], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel7 + worldModel7 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel7" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel7], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel7" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel7], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel8 + worldModel8 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel8" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel8], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel8" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel8], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel8 + worldModel8 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel8" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel8], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel8" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel8], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel9 + worldModel9 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel9" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel9], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel9" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel9], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel9 + worldModel9 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel9" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel9], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel9" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel9], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel10 + worldModel10 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel10" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel10], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel10" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel10], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel10 + worldModel10 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel10" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel10], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel10" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel10], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel11 + worldModel11 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel11" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel11], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel11" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel11], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel11 + worldModel11 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel11" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel11], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel11" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel11], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel12 + worldModel12 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel12" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel12], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel12" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel12], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel12 + worldModel12 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel12" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel12], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel12" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel12], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel13 + worldModel13 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel13" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel13], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel13" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel13], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel13 + worldModel13 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel13" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel13], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel13" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel13], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel14 + worldModel14 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel14" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel14], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel14" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel14], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel14 + worldModel14 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel14" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel14], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel14" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel14], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel15 + worldModel15 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel15" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel15], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel15" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel15], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
+                                            <!-- gunModel15 + worldModel15 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel15" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel15], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel15" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel15], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
 
-                                        <!-- gunModel16 + worldModel16 -->
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="gunModel16" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [gunModel16], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal" Margin="5">
-                                            <TextBlock Text="worldModel16" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
-                                            <TextBox Text="{Binding [worldModel16], Mode=TwoWay}" Width="200"/>
-                                        </StackPanel>
-                                    </UniformGrid>
-                                </ScrollViewer>
+                                            <!-- gunModel16 + worldModel16 -->
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="gunModel16" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [gunModel16], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="5">
+                                                <TextBlock Text="worldModel16" Width="100" Style="{StaticResource FieldLabelStyle}" VerticalAlignment="Center"/>
+                                                <TextBox Text="{Binding [worldModel16], Mode=TwoWay}" Width="200"/>
+                                            </StackPanel>
+                                        </UniformGrid>
+                                    </ScrollViewer>
+                                </Grid>
                             </Expander>
                         </GroupBox>
-
-
-
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
@@ -759,7 +760,7 @@ Value="{Binding Path=HorizontalContentAlignment,
             <!-- Anims Tab -->
             <TabItem Header="Anims" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="5">
+                    <StackPanel Margin="5" KeyboardNavigation.DirectionalNavigation="Cycle">
                         <GroupBox Header="All Animations">
                             <Grid Margin="5">
                                 <Grid.ColumnDefinitions>
@@ -927,7 +928,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
             <TabItem Header="State Timers" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Margin="5" Orientation="Vertical">
+                    <StackPanel Margin="5" Orientation="Vertical" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                         <!-- Group 1: Fire & Melee Timers -->
                         <GroupBox Header="Fire">

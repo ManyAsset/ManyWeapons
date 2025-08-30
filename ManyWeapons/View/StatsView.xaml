@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              HorizontalAlignment="Stretch"
+             FocusManager.IsFocusScope="True"
+             KeyboardNavigation.DirectionalNavigation="Cycle"
              VerticalAlignment="Stretch">
 
     <UserControl.Resources>
@@ -542,7 +544,7 @@ Value="{Binding Path=HorizontalContentAlignment,
     <TabControl Margin="5" Background="{StaticResource DarkPanelBrush}" Foreground="{StaticResource TextBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
         <TabItem Header="Damage">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="15">
+                <StackPanel Margin="15" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                     <!-- General Damage Fields -->
                     <GroupBox Header="General Damage" Margin="0,0,0,10">
@@ -685,7 +687,7 @@ Value="{Binding Path=HorizontalContentAlignment,
         <!-- Other tabs can be added here -->
         <TabItem Header="Ammo/Clip">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="10" Orientation="Vertical">
+                <StackPanel Margin="10" Orientation="Vertical" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                     <!-- Group: Ammo Settings -->
                     <GroupBox Header="Ammo Settings" Margin="0,0,0,10">
@@ -775,7 +777,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
         <TabItem Header="Movement">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="10">
+                <StackPanel Margin="10" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                     <!-- ADS Settings -->
                     <GroupBox Header="ADS Settings" Margin="0,0,0,10">
@@ -946,88 +948,9 @@ Value="{Binding Path=HorizontalContentAlignment,
                 </StackPanel>
             </ScrollViewer>
         </TabItem>
-
         <TabItem Header="Spread">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="15">
-                    <GroupBox Header="Spread Settings" Margin="10">
-                        <Grid Margin="10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="250"/>
-                                <ColumnDefinition Width="100"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-
-                            <!-- Column 1 -->
-                            <TextBlock Text="adsSpread" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [adsSpread], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
-
-                            <TextBlock Text="hipSpreadStandMin" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadStandMin], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
-
-                            <TextBlock Text="hipSpreadDuckedMin" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadDuckedMin], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
-
-                            <TextBlock Text="hipSpreadProneMin" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadProneMin], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
-
-                            <TextBlock Text="hipSpreadFireAdd" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadFireAdd], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
-
-                            <TextBlock Text="hipSpreadDecayRate" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadDecayRate], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
-
-                            <TextBlock Text="autoAimRange" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [autoAimRange], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
-
-                            <TextBlock Text="aimAssistRange" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [aimAssistRange], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
-
-                            <TextBlock Text="aimAssistRangeAds" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [aimAssistRangeAds], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
-
-                            <!-- Column 2 -->
-                            <TextBlock Text="hipSpreadStandMax" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadMax], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
-
-                            <TextBlock Text="hipSpreadDuckedMax" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadDuckedMax], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
-
-                            <TextBlock Text="hipSpreadProneMax" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadProneMax], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
-
-                            <TextBlock Text="hipSpreadTurnAdd" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadTurnAdd], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
-
-                            <TextBlock Text="hipSpreadDuckedDecay" Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadDuckedDecay], Mode=TwoWay}" Grid.Row="5" Grid.Column="3"/>
-
-                            <TextBlock Text="hipSpreadMoveAdd" Grid.Row="6" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadMoveAdd], Mode=TwoWay}" Grid.Row="6" Grid.Column="3"/>
-
-                            <TextBlock Text="hipSpreadProneDecay" Grid.Row="7" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
-                            <TextBox Text="{Binding [hipSpreadProneDecay], Mode=TwoWay}" Grid.Row="7" Grid.Column="3"/>
-                        </Grid>
-                    </GroupBox>
-                </StackPanel>
-            </ScrollViewer>
-        </TabItem>
-        <TabItem Header="Spread">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="15">
+                <StackPanel Margin="15" KeyboardNavigation.DirectionalNavigation="Cycle">
                     <GroupBox Header="Spread Settings" Margin="10" HorizontalAlignment="Stretch">
                         <Grid Margin="10" HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
@@ -1108,11 +1031,80 @@ Value="{Binding Path=HorizontalContentAlignment,
             </ScrollViewer>
         </TabItem>
 
+        <TabItem Header="Sway">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="15" KeyboardNavigation.DirectionalNavigation="Cycle">
+                    <GroupBox Header="Sway Settings" Margin="10" HorizontalAlignment="Stretch">
+                        <Grid Margin="10" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Column 1 -->
+                            <TextBlock Text="swayMaxAngle" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayMaxAngle], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+
+                            <TextBlock Text="swayLerpSpeed" Grid.Row="1" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayLerpSpeed], Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+
+                            <TextBlock Text="swayPitchScale" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayPitchScale], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+
+                            <TextBlock Text="swayYawScale" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayYawScale], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+
+                            <TextBlock Text="swayHorizScale" Grid.Row="4" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayHorizScale], Mode=TwoWay}" Grid.Row="4" Grid.Column="1"/>
+
+                            <TextBlock Text="swayVertScale" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayVertScale], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
+
+                            <TextBlock Text="swayShellShockScale" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [swayShellShockScale], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                            <!-- Column 2 -->
+                            <TextBlock Text="adsSwayMaxAngle" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSwayMaxAngle], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+
+                            <TextBlock Text="adsSwayLerpSpeed" Grid.Row="1" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSwayLerpSpeed], Mode=TwoWay}" Grid.Row="1" Grid.Column="3"/>
+
+                            <TextBlock Text="adsSwayPitchScale" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSwayPitchScale], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                            <TextBlock Text="adsSwayYawScale" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSwayYawScale], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
+
+                            <TextBlock Text="adsSwayHorizScale" Grid.Row="4" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSwayHorizScale], Mode=TwoWay}" Grid.Row="4" Grid.Column="3"/>
+
+                            <TextBlock Text="adsSwayVertScale" Grid.Row="5" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsSwayVertScale], Mode=TwoWay}" Grid.Row="5" Grid.Column="3"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
 
         <TabItem Header="Kick">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <StackPanel Margin="15">
+                <StackPanel Margin="15" KeyboardNavigation.DirectionalNavigation="Cycle">
 
+                    <!-- Gun Kick Settings -->
                     <!-- Gun Kick Settings -->
                     <GroupBox Header="Gun Kick Settings" Margin="10" HorizontalAlignment="Stretch">
                         <Grid Margin="10" HorizontalAlignment="Stretch">
@@ -1123,8 +1115,11 @@ Value="{Binding Path=HorizontalContentAlignment,
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
 
-                            <!-- Rows -->
+                            <!-- ✅ Expanded Row Definitions -->
+                            <!-- RowDefinitions updated to match all entries -->
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
@@ -1137,7 +1132,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!-- Left Column -->
+                            <!-- LEFT COLUMN -->
                             <TextBlock Text="hipGunKickReducedKickBullets" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
                             <TextBox Text="{Binding [hipGunKickReducedKickBullets], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
 
@@ -1156,7 +1151,26 @@ Value="{Binding Path=HorizontalContentAlignment,
                             <TextBlock Text="adsGunKickReducedKickPercent" Grid.Row="5" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
                             <TextBox Text="{Binding [adsGunKickReducedKickPercent], Mode=TwoWay}" Grid.Row="5" Grid.Column="1"/>
 
-                            <!-- Right Column -->
+                            <!-- ✅ NEW on LEFT -->
+                            <TextBlock Text="adsGunKickPitchMin" Grid.Row="6" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickPitchMin], Mode=TwoWay}" Grid.Row="6" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickPitchMax" Grid.Row="7" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickPitchMax], Mode=TwoWay}" Grid.Row="7" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickYawMin" Grid.Row="8" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickYawMin], Mode=TwoWay}" Grid.Row="8" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickYawMax" Grid.Row="9" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickYawMax], Mode=TwoWay}" Grid.Row="9" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickSpeedDecay" Grid.Row="10" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickSpeedDecay], Mode=TwoWay}" Grid.Row="10" Grid.Column="1"/>
+
+                            <TextBlock Text="adsGunKickStaticDecay" Grid.Row="11" Grid.Column="0" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
+                            <TextBox Text="{Binding [adsGunKickStaticDecay], Mode=TwoWay}" Grid.Row="11" Grid.Column="1"/>
+
+                            <!-- RIGHT COLUMN (unchanged) -->
                             <TextBlock Text="hipGunKickYawMin" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
                             <TextBox Text="{Binding [hipGunKickYawMin], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
 
@@ -1186,6 +1200,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
                             <TextBlock Text="adsGunKickSpeedMax" Grid.Row="9" Grid.Column="2" Style="{StaticResource FieldLabelStyle}" HorizontalAlignment="Right"/>
                             <TextBox Text="{Binding [adsGunKickSpeedMax], Mode=TwoWay}" Grid.Row="9" Grid.Column="3"/>
+
                         </Grid>
                     </GroupBox>
 
@@ -1243,7 +1258,5 @@ Value="{Binding Path=HorizontalContentAlignment,
                 </StackPanel>
             </ScrollViewer>
         </TabItem>
-
-
     </TabControl>
 </UserControl>

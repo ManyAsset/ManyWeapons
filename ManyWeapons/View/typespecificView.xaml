@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ManyWeapons.View"
+             KeyboardNavigation.DirectionalNavigation="Cycle"
+             FocusManager.IsFocusScope="True"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -557,7 +559,7 @@ Value="{Binding Path=HorizontalContentAlignment,
         <TabControl>
             <TabItem Header="Grenade Weapon" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{StaticResource DarkBackgroundBrush}">
-                    <StackPanel Margin="10">
+                    <StackPanel Margin="10" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                         <!-- General -->
                         <GroupBox Header="General Settings">
@@ -753,7 +755,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
             <TabItem Header="Projectile Weapon" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{StaticResource DarkBackgroundBrush}">
-                    <StackPanel Margin="10">
+                    <StackPanel Margin="10" KeyboardNavigation.DirectionalNavigation="Cycle">
 
                         <!-- Projectile Settings -->
                         <GroupBox Header="Projectile Settings">
@@ -894,7 +896,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                         <!-- Bounce Settings -->
                         <GroupBox Header="Bounce Settings">
                             <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="400">
-                                <StackPanel>
+                                <StackPanel KeyboardNavigation.DirectionalNavigation="Cycle">
                                     <UniformGrid Columns="2">
                                         <!-- FULL parallel and perpendicular list below -->
                                     <TextBlock Text="parallelDefaultBounce" Style="{StaticResource FieldLabelStyle}"/>
@@ -1024,7 +1026,7 @@ Value="{Binding Path=HorizontalContentAlignment,
 
             <TabItem Header="Turret Weapon" Style="{StaticResource ThemedSubTabItem}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Background="{StaticResource DarkBackgroundBrush}">
-                    <StackPanel Margin="10">
+                    <StackPanel Margin="10" KeyboardNavigation.DirectionalNavigation="Cycle">
                         <GroupBox Header="Turret Settings">
                             <Grid Margin="10">
                                 <Grid.ColumnDefinitions>
