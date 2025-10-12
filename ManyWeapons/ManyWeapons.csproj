@@ -6,20 +6,35 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+
+	  <!-- Version Information -->
+	  <Version>1.0.4.0</Version>
+	  <AssemblyVersion>1.0.4.0</AssemblyVersion>
+	  <FileVersion>1.0.4.0</FileVersion>
+	  <AssemblyInformationalVersion>1.0.4.0</AssemblyInformationalVersion>
+	  
+    <ApplicationIcon>ManyWeapons_Logo_128.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\ManyAnims_Icon_128.png" />
     <None Remove="Images\ManyWeapons_Logo_128.png" />
+    <None Remove="Images\ManyWeapons_Logo_512.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\ManyAnims_Icon_128.png" />
+    <Content Include="ManyWeapons_Logo_128.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\ManyWeapons_Logo_512.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Icons\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\ManyWeapons_Logo_128.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

@@ -1,20 +1,20 @@
 ﻿ManyWeapons
-1.0.0.0
+1.0.4.0
 
 winexe
 C#
 .cs
-H:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeapons\ManyWeapons\obj\Debug\net8.0-windows\
+L:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\obj\Debug\net8.0-windows\
 ManyWeapons
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-H:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeapons\ManyWeapons\App.xaml
-31802724906
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+L:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\App.xaml
+1024761366
+1285275493
+27-1232764415
+198-1588478740
+View\ChangelogWindow.xaml;View\ConfirmDialog.xaml;View\CustomSplashScreen.xaml;View\effectsView.xaml;View\GeneralSectionView.xaml;View\MainWindow.xaml;View\ModelAnimationsView.xaml;View\SoundView.xaml;View\StatsView.xaml;View\typespecificView.xaml;
 
-21503324763
-198-1431420039
-MainWindow.xaml;View\GeneralInfoView.xaml;View\GenericSectionView.xaml;
-
-True
+False
 

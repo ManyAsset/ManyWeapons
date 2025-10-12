@@ -8,12 +8,12 @@ namespace ManyWeapons.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return bool.TryParse(value?.ToString(), out var result) && result;
+            return value?.ToString() == "1";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? "true" : "false";
+            return (bool)value ? "1" : "0";
         }
     }
 }

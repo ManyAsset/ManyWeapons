@@ -1,22 +1,23 @@
-﻿using System;
+﻿using ManyWeapons.Base;
+using ManyWeapons.Model;
+using ManyWeapons.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ManyWeapons.Base;
-using ManyWeapons.Model;
-using ManyWeapons.View;
 
 namespace ManyWeapons.ViewModel
 {
+    using ManyWeapons.Model;
+    using ManyWeapons.Relay;
     using System.IO;
     using System.Reflection;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
-    using ManyWeapons.Model;
-    using ManyWeapons.Relay;
 
     public class WeaponFileViewModel : ViewModelBase
     {
@@ -242,12 +243,70 @@ namespace ManyWeapons.ViewModel
             OnPropertyChanged(nameof(CurrentWeaponName));
         }
 
+        //private async void SaveToFile()
+        //{
+        //    try
+        //    {
+        //        if (string.IsNullOrEmpty(CurrentFilePath)) return;
+
+        //        var flatList = new List<string> { "WEAPONFILE" };
+        //        foreach (var kvp in Data.Fields)
+        //        {
+        //            flatList.Add(kvp.Key);
+        //            flatList.Add(kvp.Value);
+        //        }
+
+        //        var line = string.Join("\\", flatList);
+        //        File.WriteAllText(CurrentFilePath, line);
+        //        HasUnsavedChanges = false;
+
+        //        // ✅ Success visual feedback
+        //        SaveButtonText = "✅ Saved";
+        //        SaveButtonBackground = Brushes.Green;
+
+        //        await Task.Delay(5000);
+
+        //        // Revert back
+        //        SaveButtonText = "💾 Save";
+        //        SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        SaveButtonText = "❌ Error";
+        //        SaveButtonBackground = Brushes.Red;
+
+        //        await Task.Delay(5000);
+
+        //        SaveButtonText = "💾 Save";
+        //        SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
+        //    }
+        //}
+
         private async void SaveToFile()
         {
             try
             {
+                // ✅ Force the current focused element (e.g., TextBox, ComboBox, CheckBox) to update binding
+                if (Keyboard.FocusedElement is FrameworkElement focusedElement)
+                {
+                    // Move focus away and back to trigger UpdateSource
+                    focusedElement.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                    focusedElement.MoveFocus(new TraversalRequest(FocusNavigationDirection.Previous));
+
+                    // Try common properties (TextBox.Text, ComboBox.SelectedValue, CheckBox.IsChecked)
+                    var textBinding = focusedElement.GetBindingExpression(TextBox.TextProperty);
+                    textBinding?.UpdateSource();
+
+                    var selectedBinding = focusedElement.GetBindingExpression(ComboBox.SelectedValueProperty);
+                    selectedBinding?.UpdateSource();
+
+                    var checkBinding = focusedElement.GetBindingExpression(CheckBox.IsCheckedProperty);
+                    checkBinding?.UpdateSource();
+                }
+
                 if (string.IsNullOrEmpty(CurrentFilePath)) return;
 
+                // Write key\value pairs
                 var flatList = new List<string> { "WEAPONFILE" };
                 foreach (var kvp in Data.Fields)
                 {
@@ -259,27 +318,24 @@ namespace ManyWeapons.ViewModel
                 File.WriteAllText(CurrentFilePath, line);
                 HasUnsavedChanges = false;
 
-                // ✅ Success visual feedback
                 SaveButtonText = "✅ Saved";
                 SaveButtonBackground = Brushes.Green;
-
                 await Task.Delay(5000);
 
-                // Revert back
                 SaveButtonText = "💾 Save";
                 SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
             }
-            catch (Exception ex)
+            catch
             {
                 SaveButtonText = "❌ Error";
                 SaveButtonBackground = Brushes.Red;
-
                 await Task.Delay(5000);
 
                 SaveButtonText = "💾 Save";
                 SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
             }
         }
+
 
         public string this[string key]
         {

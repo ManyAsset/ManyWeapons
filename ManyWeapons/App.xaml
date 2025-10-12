@@ -1,11 +1,22 @@
 ﻿<Application x:Class="ManyWeapons.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ManyWeapons"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:ManyWeapons" 
+             xmlns:local1="clr-namespace:ManyWeapons.Converters"
+             Startup="OnStartup">
+    <!--StartupUri="/View/MainWindow.xaml"-->
     <Application.Resources>
+        <local1:StringToBoolConverter x:Key="StringToBoolConverter"/>
+        <local1:EnumBindingConverter x:Key="EnumBindingConverter" />
+        <local1:FileNameOnlyConverter x:Key="FileNameOnlyConverter"/>
+
+        <Color x:Key="DarkBackground">#1e1e1e</Color>
+        <Color x:Key="DarkPanel">#2d2d30</Color>
         <Color x:Key="AccentOrange">#FF9800</Color>
         <Color x:Key="TextColor">White</Color>
+
+        <SolidColorBrush x:Key="DarkBackgroundBrush" Color="{StaticResource DarkBackground}" />
+        <SolidColorBrush x:Key="DarkPanelBrush" Color="{StaticResource DarkPanel}" />
         <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentOrange}" />
         <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}" />
     </Application.Resources>

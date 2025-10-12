@@ -679,6 +679,7 @@ Value="{Binding Path=HorizontalContentAlignment,
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Text="reloadSound" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
@@ -695,6 +696,11 @@ Value="{Binding Path=HorizontalContentAlignment,
                         <TextBox Text="{Binding [reloadStartSound], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
                         <TextBlock Text="reloadStartSoundPlayer" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
                         <TextBox Text="{Binding [reloadStartSoundPlayer], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
+
+                        <TextBlock Text="reloadEndSound" Grid.Row="3" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [reloadEndSound], Mode=TwoWay}" Grid.Row="3" Grid.Column="1"/>
+                        <TextBlock Text="reloadEndSoundPlayer" Grid.Row="3" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [reloadEndSoundPlayer], Mode=TwoWay}" Grid.Row="3" Grid.Column="3"/>
                     </Grid>
                 </GroupBox>
 

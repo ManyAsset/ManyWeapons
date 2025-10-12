@@ -52,7 +52,7 @@ namespace ManyWeapons.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ManyWeapons;V1.0.3.0;component/view/typespecificview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ManyWeapons;V1.0.4.0;component/view/typespecificview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\View\typespecificView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
