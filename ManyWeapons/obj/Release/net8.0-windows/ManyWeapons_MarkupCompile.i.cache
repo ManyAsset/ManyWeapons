@@ -1,19 +1,19 @@
 ﻿ManyWeapons
-1.0.1.0
+1.0.5.0
 
 winexe
 C#
 .cs
-H:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\obj\Release\net8.0-windows\
+L:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\obj\Release\net8.0-windows\
 ManyWeapons
 none
 false
-TRACE;RELEASE;NET;NET8_0;NETCOREAPP
-H:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\App.xaml
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+L:\Elfenliedtopfan5 Programs 24\ManyApps\ManyWeapons\ManyWeaponsNew\ManyWeapons\ManyWeapons\App.xaml
 1024761366
 1285275493
-26-308750477
-198-1431420039
+27-1709187849
+198-1588478740
 View\ChangelogWindow.xaml;View\ConfirmDialog.xaml;View\CustomSplashScreen.xaml;View\effectsView.xaml;View\GeneralSectionView.xaml;View\MainWindow.xaml;View\ModelAnimationsView.xaml;View\SoundView.xaml;View\StatsView.xaml;View\typespecificView.xaml;
 
 False

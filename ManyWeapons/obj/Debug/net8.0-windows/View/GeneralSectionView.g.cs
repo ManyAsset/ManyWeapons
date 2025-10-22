@@ -53,7 +53,7 @@ namespace ManyWeapons.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ManyWeapons;V1.0.4.0;component/view/generalsectionview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ManyWeapons;V1.0.5.0;component/view/generalsectionview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\GeneralSectionView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

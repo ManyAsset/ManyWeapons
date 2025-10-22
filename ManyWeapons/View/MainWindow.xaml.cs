@@ -1,10 +1,11 @@
-﻿using System.Windows;
+﻿using ManyWeapons.View;
+using ManyWeapons.ViewModel;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
-using ManyWeapons.View;
-using ManyWeapons.ViewModel;
 
 namespace ManyWeapons
 {
@@ -43,6 +44,70 @@ namespace ManyWeapons
                 HwndSource.FromHwnd(handle).AddHook(WindowProc);
             };
         }
+
+
+        public void ForceUpdateAllBindings(DependencyObject parent)
+        {
+            if (parent == null) return;
+
+            foreach (var child in LogicalTreeHelper.GetChildren(parent))
+            {
+                if (child is DependencyObject depObj)
+                {
+                    // Recursively apply to all children
+                    ForceUpdateAllBindings(depObj);
+                }
+
+                if (child is TextBox textBox)
+                {
+                    textBox.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
+                }
+                else if (child is ComboBox comboBox)
+                {
+                    comboBox.GetBindingExpression(ComboBox.SelectedValueProperty)?.UpdateSource();
+                }
+                else if (child is CheckBox checkBox)
+                {
+                    checkBox.GetBindingExpression(CheckBox.IsCheckedProperty)?.UpdateSource();
+                }
+            }
+        }
+
+
+
+
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel?.SelectedSection?.View is UserControl activeView)
+            {
+                ForceUpdateAllBindings(activeView);
+                ForceUpdateAllBindings(this);
+                ForceUpdateAllBindings(ViewModel?.SelectedSection?.View);
+            }
+
+            ViewModel?.SaveToFile();
+        }
+
+
+
+
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S)
+            {
+                if (DataContext is WeaponFileViewModel vm && vm.SelectedSection?.View is UserControl view)
+                {
+                    ForceUpdateAllBindings(view);  // ✅ Flush input changes
+                    vm.SaveToFile();               // ✅ Save to file
+                    e.Handled = true;
+                }
+            }
+        }
+
+
+
 
         //private void FileDropHandler(object sender, DragEventArgs e)
         //{

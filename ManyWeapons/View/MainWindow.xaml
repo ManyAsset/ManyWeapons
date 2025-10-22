@@ -14,6 +14,7 @@
         UseLayoutRounding="True"
         SnapsToDevicePixels="True"
         ResizeMode="CanResize"
+        PreviewKeyDown="Window_PreviewKeyDown"
         Width="1200" Height="800">
 
     <Window.Resources>
@@ -1013,6 +1014,9 @@ Value="{Binding Path=HorizontalContentAlignment,
         <KeyBinding Modifiers="Control" Key="S" Command="{Binding SaveCommand}" />
     </Window.InputBindings>
 
+
+
+
     <Grid Name="RootGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Border
         Background="{StaticResource DarkBackgroundBrush}"
@@ -1090,12 +1094,12 @@ Value="{Binding Path=HorizontalContentAlignment,
                         <Run Text="Loaded weaponfile: " Foreground="White" />
                         <Run Text="{Binding CurrentWeaponName}" FontWeight="Bold" Foreground="White" />
                         </TextBlock>
-                        <TextBlock Grid.Column="1" Text="{Binding AppVersion}" Margin="20,0"
+                        <TextBlock Grid.Column="1" Text="{Binding AppVersion}" Margin="20,0" 
                                Foreground="{StaticResource TextBrush}" FontSize="12" VerticalAlignment="Center"
                                FontWeight="Bold" />
                         <Button Grid.Column="2"
                             Content="{Binding SaveButtonText}"
-                            Command="{Binding SaveCommand}"
+                            Click="SaveButton_Click"
                             Width="100" Height="28" Margin="10,0,10,0"
                             VerticalAlignment="Center"
                             Style="{StaticResource ThemedButtonStyle}"
@@ -1174,6 +1178,11 @@ Value="{Binding Path=HorizontalContentAlignment,
                 </Grid>
             </DockPanel>
         </Border>
+        <TextBox x:Name="DummyFocusTarget"
+         Visibility="Collapsed"
+         IsTabStop="False"
+         Focusable="True"/>
+
     </Grid>
 
 </Window>

@@ -8,10 +8,10 @@
     <UseWPF>true</UseWPF>
 
 	  <!-- Version Information -->
-	  <Version>1.0.4.0</Version>
-	  <AssemblyVersion>1.0.4.0</AssemblyVersion>
-	  <FileVersion>1.0.4.0</FileVersion>
-	  <AssemblyInformationalVersion>1.0.4.0</AssemblyInformationalVersion>
+	  <Version>1.0.5.0</Version>
+	  <AssemblyVersion>1.0.5.0</AssemblyVersion>
+	  <FileVersion>1.0.5.0</FileVersion>
+	  <AssemblyInformationalVersion>1.0.5.0</AssemblyInformationalVersion>
 	  
     <ApplicationIcon>ManyWeapons_Logo_128.ico</ApplicationIcon>
   </PropertyGroup>

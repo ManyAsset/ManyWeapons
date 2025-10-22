@@ -1,12 +1,7 @@
 ﻿using ManyWeapons.Base;
-using ManyWeapons.Model;
 using ManyWeapons.View;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ManyWeapons.ViewModel
 {
@@ -282,46 +277,126 @@ namespace ManyWeapons.ViewModel
         //    }
         //}
 
-        private async void SaveToFile()
+        //public async void SaveToFile()
+        //{
+        //    try
+        //    {
+
+        //        // ✅ Manually update bindings of last focused element
+        //        if (FocusManager.GetFocusedElement(FocusManager.GetFocusScope(Application.Current.MainWindow)) is FrameworkElement focusedElement)
+        //        {
+        //            // Cycle focus to ensure update
+        //            focusedElement.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+
+        //            // Try TextBox.Text
+        //            var textBinding = focusedElement.GetBindingExpression(TextBox.TextProperty);
+        //            textBinding?.UpdateSource();
+
+        //            // Try ComboBox.SelectedValue
+        //            var selectedBinding = focusedElement.GetBindingExpression(ComboBox.SelectedValueProperty);
+        //            selectedBinding?.UpdateSource();
+
+        //            // Try CheckBox.IsChecked
+        //            var checkBinding = focusedElement.GetBindingExpression(CheckBox.IsCheckedProperty);
+        //            checkBinding?.UpdateSource();
+        //        }
+
+        //        if (string.IsNullOrEmpty(CurrentFilePath)) return;
+
+        //        // 🔽 Save logic unchanged
+        //        var flatList = new List<string> { "WEAPONFILE" };
+        //        foreach (var kvp in Data.Fields)
+        //        {
+        //            flatList.Add(kvp.Key);
+        //            flatList.Add(kvp.Value);
+        //        }
+
+        //        var line = string.Join("\\", flatList);
+        //        File.WriteAllText(CurrentFilePath, line);
+        //        HasUnsavedChanges = false;
+
+        //        SaveButtonText = "✅ Saved";
+        //        SaveButtonBackground = Brushes.Green;
+        //        await Task.Delay(5000);
+
+        //        SaveButtonText = "💾 Save";
+        //        SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
+        //    }
+        //    catch
+        //    {
+        //        SaveButtonText = "❌ Error";
+        //        SaveButtonBackground = Brushes.Red;
+        //        await Task.Delay(5000);
+
+        //        SaveButtonText = "💾 Save";
+        //        SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
+        //    }
+        //}
+
+        public async void SaveToFile()
         {
             try
             {
-                // ✅ Force the current focused element (e.g., TextBox, ComboBox, CheckBox) to update binding
-                if (Keyboard.FocusedElement is FrameworkElement focusedElement)
+                // ✅ Ensure focus is updated before saving
+                if (Keyboard.FocusedElement is FrameworkElement focused)
                 {
-                    // Move focus away and back to trigger UpdateSource
-                    focusedElement.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
-                    focusedElement.MoveFocus(new TraversalRequest(FocusNavigationDirection.Previous));
-
-                    // Try common properties (TextBox.Text, ComboBox.SelectedValue, CheckBox.IsChecked)
-                    var textBinding = focusedElement.GetBindingExpression(TextBox.TextProperty);
-                    textBinding?.UpdateSource();
-
-                    var selectedBinding = focusedElement.GetBindingExpression(ComboBox.SelectedValueProperty);
-                    selectedBinding?.UpdateSource();
-
-                    var checkBinding = focusedElement.GetBindingExpression(CheckBox.IsCheckedProperty);
-                    checkBinding?.UpdateSource();
+                    focused.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
+                    focused.MoveFocus(new TraversalRequest(FocusNavigationDirection.Previous));
                 }
 
-                if (string.IsNullOrEmpty(CurrentFilePath)) return;
+                if (FocusManager.GetFocusedElement(FocusManager.GetFocusScope(Application.Current.MainWindow)) is FrameworkElement focusedElement)
+                {
+                    focusedElement.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
+                    focusedElement.GetBindingExpression(ComboBox.SelectedValueProperty)?.UpdateSource();
+                    focusedElement.GetBindingExpression(CheckBox.IsCheckedProperty)?.UpdateSource();
+                }
 
-                // Write key\value pairs
+                if (string.IsNullOrEmpty(CurrentFilePath))
+                    return;
+
+                // ✅ Handle normal fields (everything except multiline ones)
                 var flatList = new List<string> { "WEAPONFILE" };
                 foreach (var kvp in Data.Fields)
                 {
+                    if (kvp.Key == "notetrackSoundMap" || kvp.Key == "hideTags")
+                        continue; // skip multiline sections, handled later
+
                     flatList.Add(kvp.Key);
                     flatList.Add(kvp.Value);
                 }
 
-                var line = string.Join("\\", flatList);
-                File.WriteAllText(CurrentFilePath, line);
+                var flatContent = string.Join("\\", flatList);
+                var finalContent = flatContent;
+
+                // ✅ Append multiline sections
+                var specialMultilineKeys = new[] { "hideTags", "notetrackSoundMap" };
+
+                foreach (var key in specialMultilineKeys)
+                {
+                    if (Data.Fields.TryGetValue(key, out var multilineValue) && !string.IsNullOrWhiteSpace(multilineValue))
+                    {
+                        multilineValue = multilineValue.Replace("\\", "").Trim();
+                        multilineValue = multilineValue.Replace("\r\n", "\n").Replace("\r", "\n").Trim();
+
+                        var lines = multilineValue
+                            .Split('\n')
+                            .Where(l => !string.IsNullOrWhiteSpace(l))
+                            .Select(l => l.Trim());
+
+                        finalContent += $"\\{key}\\{string.Join(Environment.NewLine, lines)}";
+                    }
+                }
+
+                File.WriteAllText(CurrentFilePath, finalContent);
+
+                // ✅ Write to file
+                File.WriteAllText(CurrentFilePath, finalContent);
                 HasUnsavedChanges = false;
 
+                // ✅ Success feedback
                 SaveButtonText = "✅ Saved";
                 SaveButtonBackground = Brushes.Green;
                 await Task.Delay(5000);
-
                 SaveButtonText = "💾 Save";
                 SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
             }
@@ -330,11 +405,12 @@ namespace ManyWeapons.ViewModel
                 SaveButtonText = "❌ Error";
                 SaveButtonBackground = Brushes.Red;
                 await Task.Delay(5000);
-
                 SaveButtonText = "💾 Save";
                 SaveButtonBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9800"));
             }
         }
+
+
 
 
         public string this[string key]

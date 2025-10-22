@@ -765,6 +765,8 @@ Value="{Binding Path=HorizontalContentAlignment,
 
                         <TextBlock Text="putawaySound" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                         <TextBox Text="{Binding [putawaySound], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
+                        <TextBlock Text="putawaySoundPlayer" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [putawaySoundPlayer], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
                     </Grid>
                 </GroupBox>
 
@@ -780,10 +782,13 @@ Value="{Binding Path=HorizontalContentAlignment,
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Text="rechamberSound" Grid.Row="0" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
                         <TextBox Text="{Binding [rechamberSound], Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Text="rechamberSoundPlayer" Grid.Row="2" Grid.Column="0" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [rechamberSoundPlayer], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
                         <TextBlock Text="altSwitchSound" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
                         <TextBox Text="{Binding [altSwitchSound], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
                     </Grid>
