@@ -676,19 +676,21 @@ Value="{Binding Path=HorizontalContentAlignment,
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ScrollViewer">
-                        <Grid Background="{StaticResource DarkBackgroundBrush}" SnapsToDevicePixels="True">
+                        <Grid Background="{StaticResource DarkBackgroundBrush}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
                             <!-- Scrollable content -->
-                            <ScrollContentPresenter Grid.Column="0"
+                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                            Grid.Column="0"
                                             CanContentScroll="True"
-                                            Margin="{TemplateBinding Padding}"/>
+                                            SnapsToDevicePixels="True" />
 
-                            <!-- Orange vertical scrollbar -->
-                            <ScrollBar Grid.Column="1"
+                            <!-- Fully functional orange scrollbar -->
+                            <ScrollBar x:Name="PART_VerticalScrollBar"
+                               Grid.Column="1"
                                Width="10"
                                Orientation="Vertical"
                                Minimum="0"
@@ -697,16 +699,17 @@ Value="{Binding Path=HorizontalContentAlignment,
                                Value="{TemplateBinding VerticalOffset}"
                                Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
                                Background="{StaticResource DarkBackgroundBrush}"
-                               BorderBrush="{StaticResource AccentBrush}"
                                Foreground="{StaticResource AccentBrush}"
+                               BorderBrush="{StaticResource AccentBrush}"
                                BorderThickness="1"
-                               Opacity="0.9"
-                               SnapsToDevicePixels="True"/>
+                               SnapsToDevicePixels="True"
+                               Cursor="Hand"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
 
         <ControlTemplate x:Key="{ComponentResourceKey ResourceId=TopLevelItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
             <Border x:Name="templateRoot" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
