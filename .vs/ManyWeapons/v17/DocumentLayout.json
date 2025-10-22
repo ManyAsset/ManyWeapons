@@ -3,6 +3,17 @@
   "WorkspaceRootPath": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\elfen\\AppData\\Local\\Temp\\.vsdbgsrc\\e430f2113a10e0be6d874e1120f7d8b98eaa853eb28c838aecad407b52193b38\\ItemsPanelTemplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\viewmodel\\weaponfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\viewmodel\\weaponfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\manyweapons.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\manyweapons.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
@@ -21,10 +32,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\view\\customsplashscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\view\\customsplashscreen.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\viewmodel\\weaponfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\viewmodel\\weaponfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\viewmodel\\weaponfieldviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +56,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\view\\generalsectionview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\view\\generalsectionview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|solutionrelative:manyweapons\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3F975FAE-9ADA-49A4-9DF3-E068A2790EF3}|ManyWeapons\\ManyWeapons.csproj|l:\\elfenliedtopfan5 programs 24\\manyapps\\manyweapons\\manyweaponsnew\\manyweapons\\manyweapons\\model\\sectionentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -166,35 +169,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CustomSplashScreen.xaml",
-              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\CustomSplashScreen.xaml",
-              "RelativeDocumentMoniker": "ManyWeapons\\View\\CustomSplashScreen.xaml",
-              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\CustomSplashScreen.xaml",
-              "RelativeToolTip": "ManyWeapons\\View\\CustomSplashScreen.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-02T01:14:02.46Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "ItemsPanelTemplate.cs",
+              "DocumentMoniker": "C:\\Users\\elfen\\AppData\\Local\\Temp\\.vsdbgsrc\\e430f2113a10e0be6d874e1120f7d8b98eaa853eb28c838aecad407b52193b38\\ItemsPanelTemplate.cs",
+              "ToolTip": "C:\\Users\\elfen\\AppData\\Local\\Temp\\.vsdbgsrc\\e430f2113a10e0be6d874e1120f7d8b98eaa853eb28c838aecad407b52193b38\\ItemsPanelTemplate.cs [Read Only]",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAswCUAAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T22:33:35.391Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ConfirmDialog.xaml",
-              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ConfirmDialog.xaml",
-              "RelativeDocumentMoniker": "ManyWeapons\\View\\ConfirmDialog.xaml",
-              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ConfirmDialog.xaml",
-              "RelativeToolTip": "ManyWeapons\\View\\ConfirmDialog.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-01T02:44:06.496Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "effectsView.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\effectsView.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\effectsView.xaml",
@@ -206,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "App.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\App.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\App.xaml",
@@ -218,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "WeaponFieldViewModel.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ViewModel\\WeaponFieldViewModel.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\ViewModel\\WeaponFieldViewModel.cs",
@@ -231,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "ModelAnimationsView.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ModelAnimationsView.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\ModelAnimationsView.xaml",
@@ -243,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ManyWeapons.csproj",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
               "RelativeDocumentMoniker": "ManyWeapons\\ManyWeapons.csproj",
@@ -256,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\MainWindow.xaml.cs",
@@ -270,6 +260,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "ManyWeapons\\View\\MainWindow.xaml",
+              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\MainWindow.xaml",
+              "RelativeToolTip": "ManyWeapons\\View\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-24T21:25:04.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeaponFileViewModel.cs",
+              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
+              "RelativeDocumentMoniker": "ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
+              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
+              "RelativeToolTip": "ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAIwIcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T21:14:11.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ConfirmDialog.xaml",
+              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ConfirmDialog.xaml",
+              "RelativeDocumentMoniker": "ManyWeapons\\View\\ConfirmDialog.xaml",
+              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ConfirmDialog.xaml",
+              "RelativeToolTip": "ManyWeapons\\View\\ConfirmDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-01T02:44:06.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CustomSplashScreen.xaml",
+              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\CustomSplashScreen.xaml",
+              "RelativeDocumentMoniker": "ManyWeapons\\View\\CustomSplashScreen.xaml",
+              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\CustomSplashScreen.xaml",
+              "RelativeToolTip": "ManyWeapons\\View\\CustomSplashScreen.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-02T01:14:02.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ManyWeapons",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ManyWeapons.csproj",
               "RelativeDocumentMoniker": "ManyWeapons\\ManyWeapons.csproj",
@@ -281,20 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WeaponFileViewModel.cs",
-              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
-              "RelativeDocumentMoniker": "ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
-              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
-              "RelativeToolTip": "ManyWeapons\\ViewModel\\WeaponFileViewModel.cs",
-              "ViewState": "AgIAAGEBAAAAAAAAAAAUwIUBAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T21:14:11.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ChangelogWindow.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ChangelogWindow.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\ChangelogWindow.xaml",
@@ -306,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "SoundView.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\SoundView.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\SoundView.xaml.cs",
@@ -319,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "GeneralSectionView.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\GeneralSectionView.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\GeneralSectionView.xaml",
@@ -331,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "SectionEntry.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Model\\SectionEntry.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Model\\SectionEntry.cs",
@@ -344,7 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "WeaponFileParser.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Model\\WeaponFileParser.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Model\\WeaponFileParser.cs",
@@ -357,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "WeaponFileData.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Model\\WeaponFileData.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Model\\WeaponFileData.cs",
@@ -370,7 +396,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "FileNameOnlyConverter.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Converters\\FileNameOnlyConverter.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Converters\\FileNameOnlyConverter.cs",
@@ -383,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "SoundView.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\SoundView.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\SoundView.xaml",
@@ -395,19 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "ManyWeapons\\View\\MainWindow.xaml",
-              "ToolTip": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\MainWindow.xaml",
-              "RelativeToolTip": "ManyWeapons\\View\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-24T21:25:04.14Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "ArrowKeyNavigationBehavior.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Converters\\ArrowKeyNavigationBehavior.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Converters\\ArrowKeyNavigationBehavior.cs",
@@ -420,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "StringToBoolConverter.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Converters\\StringToBoolConverter.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Converters\\StringToBoolConverter.cs",
@@ -433,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "EnumBindingConverter.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Converters\\EnumBindingConverter.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Converters\\EnumBindingConverter.cs",
@@ -446,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "GeneralSectionView.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\GeneralSectionView.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\GeneralSectionView.xaml.cs",
@@ -459,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "ModelAnimationsView.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ModelAnimationsView.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\ModelAnimationsView.xaml.cs",
@@ -472,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "ChangelogWindow.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ChangelogWindow.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\ChangelogWindow.xaml.cs",
@@ -484,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "StatsView.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\StatsView.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\StatsView.xaml",
@@ -495,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "ViewModelBase.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Base\\ViewModelBase.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Base\\ViewModelBase.cs",
@@ -503,11 +517,12 @@
               "RelativeToolTip": "ManyWeapons\\Base\\ViewModelBase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T21:20:25.548Z"
+              "WhenOpened": "2025-06-24T21:20:25.548Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\App.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\App.xaml.cs",
@@ -519,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "DropdownOptionsProvider.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Utils\\DropdownOptionsProvider.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Utils\\DropdownOptionsProvider.cs",
@@ -531,7 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\Relay\\RelayCommand.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\Relay\\RelayCommand.cs",
@@ -543,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\elfen\\Documents\\maya\\2024\\scripts\\gtlfpluginelfen\\cod-weapons-editor\\WeaponsEditor\u002B\u002B\\Form1.cs",
               "ToolTip": "C:\\Users\\elfen\\Documents\\maya\\2024\\scripts\\gtlfpluginelfen\\cod-weapons-editor\\WeaponsEditor\u002B\u002B\\Form1.cs",
@@ -553,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "CustomSplashScreen.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\CustomSplashScreen.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\CustomSplashScreen.xaml.cs",
@@ -565,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\elfen\\Documents\\maya\\2024\\scripts\\gtlfpluginelfen\\cod-weapons-editor\\WeaponsEditor\u002B\u002B\\Form1.Designer.cs",
               "ToolTip": "C:\\Users\\elfen\\Documents\\maya\\2024\\scripts\\gtlfpluginelfen\\cod-weapons-editor\\WeaponsEditor\u002B\u002B\\Form1.Designer.cs",
@@ -575,7 +590,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 38,
               "Title": "ConfirmDialog.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\ConfirmDialog.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\ConfirmDialog.xaml.cs",
@@ -587,7 +602,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "typespecificView.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\typespecificView.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\typespecificView.xaml.cs",
@@ -599,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "typespecificView.xaml",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\typespecificView.xaml",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\typespecificView.xaml",
@@ -610,7 +625,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "effectsView.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\effectsView.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\effectsView.xaml.cs",
@@ -622,7 +637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "StatsView.xaml.cs",
               "DocumentMoniker": "L:\\Elfenliedtopfan5 Programs 24\\ManyApps\\ManyWeapons\\ManyWeaponsNew\\ManyWeapons\\ManyWeapons\\View\\StatsView.xaml.cs",
               "RelativeDocumentMoniker": "ManyWeapons\\View\\StatsView.xaml.cs",
@@ -634,7 +649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 40,
               "Title": "Microsoft.CSharp.Core.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\Roslyn\\Microsoft.CSharp.Core.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\MSBuild\\Current\\Bin\\Roslyn\\Microsoft.CSharp.Core.targets",
@@ -644,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 39,
               "Title": "Window.cs",
               "DocumentMoniker": "C:\\Users\\elfen\\AppData\\Local\\Temp\\.vsdbgsrc\\50ab7bdae9243e5122ba9edb32871e43129da7d00db627fba3fc17e8a1e08277\\Window.cs",
               "ToolTip": "C:\\Users\\elfen\\AppData\\Local\\Temp\\.vsdbgsrc\\50ab7bdae9243e5122ba9edb32871e43129da7d00db627fba3fc17e8a1e08277\\Window.cs [Read Only]",

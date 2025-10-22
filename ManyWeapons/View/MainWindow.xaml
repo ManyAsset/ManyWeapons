@@ -667,51 +667,47 @@ Value="{Binding Path=HorizontalContentAlignment,
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="{ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}" BasedOn="{x:Null}" TargetType="{x:Type ScrollViewer}">
-            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+        <Style x:Key="{ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}"
+       TargetType="ScrollViewer"
+       BasedOn="{x:Null}">
             <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="MaxHeight" Value="300"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                        <Grid SnapsToDevicePixels="true">
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Grid Background="{StaticResource DarkBackgroundBrush}" SnapsToDevicePixels="True">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Border Grid.Column="0" Grid.Row="1">
-                                <ScrollContentPresenter CanContentScroll="{TemplateBinding CanContentScroll}" Margin="{TemplateBinding Padding}"/>
-                            </Border>
-                            <RepeatButton Command="{x:Static ScrollBar.LineUpCommand}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" Focusable="false" Grid.Row="0" Style="{StaticResource MenuScrollButton}">
-                                <RepeatButton.Visibility>
-                                    <MultiBinding ConverterParameter="0" Converter="{StaticResource MenuScrollingVisibilityConverter}" FallbackValue="Visibility.Collapsed">
-                                        <Binding Path="ComputedVerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="VerticalOffset" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="ExtentHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                    </MultiBinding>
-                                </RepeatButton.Visibility>
-                                <Path Data="{StaticResource UpArrow}" Fill="{StaticResource Menu.Static.Foreground}"/>
-                            </RepeatButton>
-                            <RepeatButton Command="{x:Static ScrollBar.LineDownCommand}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" Focusable="false" Grid.Row="2" Style="{StaticResource MenuScrollButton}">
-                                <RepeatButton.Visibility>
-                                    <MultiBinding ConverterParameter="100" Converter="{StaticResource MenuScrollingVisibilityConverter}" FallbackValue="Visibility.Collapsed">
-                                        <Binding Path="ComputedVerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="VerticalOffset" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="ExtentHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="ViewportHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                    </MultiBinding>
-                                </RepeatButton.Visibility>
-                                <Path Data="{StaticResource DownArrow}" Fill="{StaticResource Menu.Static.Foreground}"/>
-                            </RepeatButton>
+
+                            <!-- Scrollable content -->
+                            <ScrollContentPresenter Grid.Column="0"
+                                            CanContentScroll="True"
+                                            Margin="{TemplateBinding Padding}"/>
+
+                            <!-- Orange vertical scrollbar -->
+                            <ScrollBar Grid.Column="1"
+                               Width="10"
+                               Orientation="Vertical"
+                               Minimum="0"
+                               Maximum="{TemplateBinding ScrollableHeight}"
+                               ViewportSize="{TemplateBinding ViewportHeight}"
+                               Value="{TemplateBinding VerticalOffset}"
+                               Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                               Background="{StaticResource DarkBackgroundBrush}"
+                               BorderBrush="{StaticResource AccentBrush}"
+                               Foreground="{StaticResource AccentBrush}"
+                               BorderThickness="1"
+                               Opacity="0.9"
+                               SnapsToDevicePixels="True"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
         <ControlTemplate x:Key="{ComponentResourceKey ResourceId=TopLevelItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}" TargetType="{x:Type MenuItem}">
             <Border x:Name="templateRoot" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                 <Grid VerticalAlignment="Center">
@@ -1006,6 +1002,12 @@ Value="{Binding Path=HorizontalContentAlignment,
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+        
+
+
+
     </Window.Resources>
 
 
@@ -1060,20 +1062,41 @@ Value="{Binding Path=HorizontalContentAlignment,
                     </Menu.ItemContainerStyle>
 
                     <MenuItem Header="File">
-                        <MenuItem Header="Recents" ItemsSource="{Binding RecentWeapons}">
+                        <MenuItem Header="Recents"
+              ItemsSource="{Binding RecentWeapons}"
+              Style="{StaticResource MenuItemStyle1}">
+
+                            <!-- Removed invalid RecentsScrollViewer reference -->
+
                             <MenuItem.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Converter={StaticResource FileNameOnlyConverter}}" />
+                                    <TextBlock Text="{Binding Converter={StaticResource FileNameOnlyConverter}}"
+                           Foreground="{StaticResource TextBrush}"
+                           FontWeight="Bold"
+                           Margin="4,2,4,2"/>
                                 </DataTemplate>
                             </MenuItem.ItemTemplate>
+
                             <MenuItem.ItemContainerStyle>
                                 <Style TargetType="MenuItem" BasedOn="{StaticResource MenuItemStyle1}">
-                                    <Setter Property="Command" Value="{Binding DataContext.OpenRecentCommand, RelativeSource={RelativeSource AncestorType=Window}}" />
+                                    <Setter Property="Command"
+                        Value="{Binding DataContext.OpenRecentCommand,
+                                RelativeSource={RelativeSource AncestorType=Window}}" />
                                     <Setter Property="CommandParameter" Value="{Binding}" />
+                                    <Setter Property="Background" Value="{StaticResource DarkBackgroundBrush}" />
+                                    <Setter Property="Foreground" Value="{StaticResource TextBrush}" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsHighlighted" Value="True">
+                                            <Setter Property="Background" Value="{StaticResource AccentBrush}" />
+                                            <Setter Property="Foreground" Value="{StaticResource DarkBackgroundBrush}" />
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </MenuItem.ItemContainerStyle>
                         </MenuItem>
                     </MenuItem>
+
+
 
                     <!-- Help Menu -->
                     <MenuItem Header="About">
