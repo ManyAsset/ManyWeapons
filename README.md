@@ -19,9 +19,19 @@ Grab the latest version in the [Releases Page](https://github.com/SadSlothXL/Man
 
 
 ## How to compile compressed exe
-In VS go to Tool > Command Line > Developer Command Prompt and copy in the below line 
-`dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeNativeLibrariesForSelfExtract=true`
-this will publish to a single compressed exe containing the framework and all the reqiered dlls .
+Now uses Publish in VS 
+Right Click on ManyWeapons c# Project at the top of Solution Explorer 
+go to Publish 
+
+For Both dialog screens select Local Folder 
+
+then you be precented with the settings section 
+use the following settings, 
+<img width="1114" height="685" alt="image" src="https://github.com/user-attachments/assets/a5a1b3f1-5d59-4877-ba8a-0431b0e0f5aa" />
+and press Publish this should produce a smaller exe. 
+
+
+
 
 ## Issues
 If you have or find any problems please create an issue [here](https://github.com/ManyAsset/ManyWeapons/issues)!
