@@ -791,6 +791,8 @@ Value="{Binding Path=HorizontalContentAlignment,
                         <TextBox Text="{Binding [rechamberSoundPlayer], Mode=TwoWay}" Grid.Row="2" Grid.Column="1"/>
                         <TextBlock Text="altSwitchSound" Grid.Row="0" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
                         <TextBox Text="{Binding [altSwitchSound], Mode=TwoWay}" Grid.Row="0" Grid.Column="3"/>
+                        <TextBlock Text="altSwitchSoundPlayer" Grid.Row="2" Grid.Column="2" Style="{StaticResource FieldLabelStyle}"/>
+                        <TextBox Text="{Binding [altSwitchSoundPlayer], Mode=TwoWay}" Grid.Row="2" Grid.Column="3"/>
                     </Grid>
                 </GroupBox>
 
